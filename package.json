@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-starter",
+  "name": "dwarse-web",
   "version": "1.0.0",
-  "description": "My AngularJS Starter using Webpack and ES6 ...",
+  "description": "",
   "scripts": {
     "updates": "npm-check-updates -u",
     "page": "node ./build/generate-page.js",
