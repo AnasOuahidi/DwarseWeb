@@ -20,7 +20,7 @@ npm run build
 ```
 Generate a new page
 ```
-npm run page -- pageName
+npm run page
 ```
 ####Equipe :<br />
 Chef de Projet : [Yasser Gueddou](https://github.com/herfedos) <br />
