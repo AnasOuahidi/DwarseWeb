@@ -14,12 +14,12 @@ const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
-rl.question('What\'s your page\'s name ? \n', (name) => {
+rl.question('Quel est le nom de la page ? \n', (name) => {
     rl.close()
     if (!name) {
-        console.log(`The page name is required, please make sure to enter one!`)
+        console.log(`Le nom de la page est obligatoire, réessayer en entrant cette fois un nom!`)
     } else if (getDirectories('./pages').contains(name)) {
-        console.log(`The ${pageName} page name is already used, try another one!`)
+        console.log(`Le nom: ${pageName} existe déjà, réessayer avec un autre nom!`)
     } else {
         let path = './pages/' + name
         let htmlFileName = path + '/' + name + '.html'
@@ -35,11 +35,11 @@ rl.question('What\'s your page\'s name ? \n', (name) => {
             input: process.stdin,
             output: process.stdout
         })
-        rl2.question('What\'s your page\'s url ? (/' + name + ') \n', (url) => {
+        rl2.question('Quelle est l\'url de la page? (par defaut: /' + name + ') \n', (url) => {
             url = !url ? '/' + name : url
             rl2.close()
             if (url.substring(0, 1) != '/') {
-                console.log('The url must start with a /')
+                console.log('L\'url doit commencer par: /')
             } else {
                 let routeJsFileContentArray = [
                     `        .state('${name}', {`,
@@ -57,11 +57,11 @@ rl.question('What\'s your page\'s name ? \n', (name) => {
                         if (err) return console.log(err)
                         fs.writeFile(htmlFileName, htmlFileContent, function(err) {
                             if (err) return console.log(err)
-                            console.log(htmlFileName + ' was generated successfully !')
+                            console.log(htmlFileName + ' a bien été généré!')
                         })
                         fs.writeFile(jsFileName, jsFileContent, function(err) {
                             if (err) return console.log(err)
-                            console.log(jsFileName + ' was generated successfully !')
+                            console.log(jsFileName + ' a bien été généré!')
                         })
                         let appFile = fs.readFileSync('./js/app.js').toString().split('\n')
                         appFile.splice(2, 0, appJsFileImport)
@@ -69,19 +69,19 @@ rl.question('What\'s your page\'s name ? \n', (name) => {
                         let text = appFile.join('\n')
                         fs.writeFile('./js/app.js', text, function(err) {
                             if (err) return console.log(err)
-                            console.log('app.js was configured successfully !')
+                            console.log('app.js a bien été configuré!')
                         })
                         let RouteJsFile = fs.readFileSync('./js/Configuration/Router.js').toString().split('\n')
                         RouteJsFile.splice.apply(RouteJsFile, [2, 0].concat(routeJsFileContentArray))
                         let textRouteJsFile = RouteJsFile.join('\n')
                         fs.writeFile('./js/Configuration/Router.js', textRouteJsFile, function(err) {
                             if (err) return console.log(err)
-                            console.log('Router.js was configured successfully !')
+                            console.log('Router.js a bien été configuré!')
                         })
-                        setTimeout(function() { console.log('\n \nCheck the #' + url + ' url to see the result') }, 700)
+                        setTimeout(function() { console.log('\n \nVisitez l\'url #' + url + 'pour voir le résultat') }, 500)
                     })
                 } else {
-                    console.log(path + ' already exists !')
+                    console.log(path + ' existe déjà!')
                 }
             }
         })
