@@ -78,7 +78,7 @@ rl.question('Quel est le nom de la page ? \n', (name) => {
                             if (err) return console.log(err)
                             console.log('Router.js a bien été configuré!')
                         })
-                        setTimeout(function() { console.log('\n \nVisitez l\'url #' + url + 'pour voir le résultat') }, 500)
+                        setTimeout(function() { console.log('\n \nVisitez l\'url http://localhost:8888/dev/#' + url + 'pour voir le résultat') }, 500)
                     })
                 } else {
                     console.log(path + ' existe déjà!')
