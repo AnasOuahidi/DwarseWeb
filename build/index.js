@@ -6,6 +6,7 @@ const morgan = require('morgan')
 let app = express()
 app.use(morgan('dev'))
 app.use('/assets', express.static(__dirname + '/../assets'))
+app.use('/../img', express.static(__dirname + '/../img'))
 app.use('/../index.html', express.static(__dirname + '/../index.html'))
 app.get('/prod', (req, res) => {
     res.sendFile(path.join(__dirname + '/../assets/index.html'))

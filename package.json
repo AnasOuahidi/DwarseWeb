@@ -6,7 +6,7 @@
 		"updates": "npm-check-updates -u",
 		"page": "node ./build/generate-page.js",
 		"build": "rimraf assets && node ./build/generate-template.js && webpack --config ./build/webpack.prod.js",
-		"dev": "concurrently \"node ./build/server.js\" \"node ./build/index.js\" --kill-others",
+		"dev": "concurrently \"node ./build/server.js\" \"nodemon ./build/index.js\" --kill-others",
 		"gh": "npm run build && gh-pages -d dist"
 	},
 	"repository": {
@@ -47,6 +47,7 @@
 		"mkdirp": "^0.5.1",
 		"morgan": "^1.7.0",
 		"node-sass": "^4.3.0",
+		"nodemon": "^1.11.0",
 		"progress-bar-webpack-plugin": "^1.9.3",
 		"rimraf": "^2.5.4",
 		"sass-loader": "^4.1.1",

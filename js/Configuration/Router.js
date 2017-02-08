@@ -10,10 +10,10 @@ export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', funct
             cache: false,
             url: '/',
             template: require('./../../pages/index/index.html'),
-            controller: 'indexCtrl',
-            data: {
-                authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
-            }
+            controller: 'indexCtrl'
+            // data: {
+            //     authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+            // }
         })
     $urlRouterProvider.otherwise(($injector, $location) => {
         let state = $injector.get('$state')
