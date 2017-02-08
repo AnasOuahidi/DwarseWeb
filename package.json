@@ -6,7 +6,7 @@
 		"updates": "npm-check-updates -u",
 		"page": "node ./build/generate-page.js",
 		"build": "rimraf assets && node ./build/generate-template.js && webpack --config ./build/webpack.prod.js",
-		"dev": "concurrently \"node ./build/server.js\" \"nodemon ./build/index.js\" --kill-others",
+		"dev": "node ./build/server.js",
 		"gh": "npm run build && gh-pages -d dist"
 	},
 	"repository": {
