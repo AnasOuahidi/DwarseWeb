@@ -4,11 +4,15 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', function($scope, Auth
     $('body').css('background-size', 'cover')
     $('nav').hide()
     $('title').html('Login page')
-    $scope.login = (data) => {
-        AuthService.login(data.username, data.password).then((data) => {
+    $scope.auth={
+        login: "",
+        password: ""
+    }
+    $scope.authentifier = function () {
+        AuthService.login($scope.auth.login, $scope.auth.password).then((data) => {
             console.log(data)
-            $state.go('index', {}, {reload: true})
-        }, function(err) {
+            // $state.go('index', {}, {reload: true})
+        }, function (err) {
             console.log(err)
         })
     }

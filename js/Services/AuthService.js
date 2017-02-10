@@ -1,54 +1,47 @@
 export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory', function($q, $http, USER_ROLES, $localStorage, Factory) {
     let token
-    let type
     let role
     let isAuthenticated = false
     useCredentials()
 
-    function storeUserCredentials(token, type) {
+    function storeUserCredentials(token, role) {
         $localStorage.token = token
-        $localStorage.role = type
+        $localStorage.role = role
         useCredentials()
     }
 
     function useCredentials() {
         token = $localStorage.token
-        type = $localStorage.role
-        if (type === 'admin') {
-            role = USER_ROLES.admin
-        }
-        if (type === 'user') {
-            role = USER_ROLES.user
-        }
-        if (token && type && role) {
+        role = $localStorage.role
+        if (token && role) {
             isAuthenticated = true
         }
-        Factory.token = token
-        Factory.role = role
+        // Factory.token = token
+        // Factory.role = role
         // Set the token as header for your requests!
         // $http.defaults.headers.common['X-Auth-Token'] = token;
     }
 
     function destroyUserCredentials() {
         token = undefined
-        type = ''
-        role = ''
+        role = undefined
         isAuthenticated = false
         // $http.defaults.headers.common['X-Auth-Token'] = undefined
         delete $localStorage.token
         delete $localStorage.role
-        Factory.token = null
-        Factory.role = null
+        // Factory.token = null
+        // Factory.role = null
     }
 
     let login = function(login, password) {
         return $q(function(resolve, reject) {
-            $http.post(Factory.url('/auth'), {login, password}).then((response) => {
-                if (response.data.token && response.data.role) {
-                    storeUserCredentials(response.data.token, response.data.role)
-                } else {
-                    reject(response)
-                }
+            $http.post("http://localhost:8000/auth/authtokens", {login: login, password: password}).then((response) => {
+                console.log(response)
+                // if (response.data.token && response.data.role) {
+                //     storeUserCredentials(response.data.token, response.data.role)
+                // } else {
+                //     reject(response)
+                // }
                 resolve(response.data)
             }, (error) => {
                 reject(error)

@@ -12,7 +12,7 @@ import {AUTH_EVENTS, USER_ROLES} from './Configuration/Constants'
 import {authListener} from './Configuration/AuthListener'
 import {router} from './Configuration/Router'
 
-window.angular.module('starter', [
+window.angular.module('dwarse', [
     'ui.router',
     'ui.bootstrap',
     'ngSanitize',

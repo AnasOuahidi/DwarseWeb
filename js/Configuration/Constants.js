@@ -3,6 +3,7 @@ export const AUTH_EVENTS = {
     notAuthorized: 'auth-not-authorized'
 }
 export const USER_ROLES = {
-    admin: 'admin_role',
-    user: 'user_role'
+    commercant: 'ROLE_COMMERCANT',
+    employe: 'ROLE_EMPLOYE',
+    employeur: 'ROLE_EMPLOYEUR'
 }

@@ -1,9 +1,27 @@
 <div class="inner-container">
     <div class="box">
         <h1>Authentification</h1>
-        <input type="text" placeholder="Login"/>
-        <input type="text" placeholder="Password"/>
-        <button>Se Connecter</button>
-        <p>Pas encore membre? <span>S'inscrire</span></p>
+        <form novalidate angular-validator angular-validator-submit='authentifier()' name="authForm">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Login"
+                       ng-model="auth.login" name="login"
+                       validator="validationLogin(auth.login)"
+                       invalid-message="'Le login doit être alphanumérique et doit avoir au moins 5 caractères'"
+                       required-message="'Ce champ est obligatoire'"
+                       validate-on="submit"
+                       required/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" placeholder="Password"
+                       ng-model="auth.password" name="password"
+                       validator="validationPassword(auth.password)"
+                       invalid-message="'Le mot de passe doit être alphanumérique et doit avoir au moins 5 caractères'"
+                       required-message="'Ce champ est obligatoire'"
+                       validate-on="submit"
+                       required/>
+            </div>
+            <button type="submit">Se Connecter</button>
+            <p>Pas encore membre? <span>S'inscrire</span></p>
+        </form>
     </div>
 </div>

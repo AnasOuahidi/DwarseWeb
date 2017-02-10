@@ -1,4 +1,4 @@
-export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory', 'AUTH_EVENTS', function($scope, $state, $uibModal, AuthService, Factory, AUTH_EVENTS) {
+export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory', 'AUTH_EVENTS', function ($scope, $state, $uibModal, AuthService, Factory, AUTH_EVENTS) {
     $scope.$on(AUTH_EVENTS.notAuthorized, (event, args) => {
         $uibModal.open({
             animation: true,
@@ -55,6 +55,35 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
             } else {
                 return false
             }
+        }
+    }
+    $scope.validationLogin = (login) => {
+        if (login) {
+            if (!$scope.validateAlphanumerique(login)) {
+                return false
+            }
+            if (login.length > 5) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
+    $scope.validationPassword = (password) => {
+        if (password) {
+            if (!$scope.validateAlphanumerique(password)) {
+                return false
+            }
+            if (password.length > 5) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
         }
     }
 }]
