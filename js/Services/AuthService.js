@@ -36,12 +36,11 @@ export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory
     let login = function(login, password) {
         return $q(function(resolve, reject) {
             $http.post("http://localhost:8000/auth/authtokens", {login: login, password: password}).then((response) => {
-                console.log(response)
-                // if (response.data.token && response.data.role) {
-                //     storeUserCredentials(response.data.token, response.data.role)
-                // } else {
-                //     reject(response)
-                // }
+                if (response.data.authToken && response.data.authToken.value && response.data.role) {
+                    storeUserCredentials(response.data.authToken.value, response.data.role)
+                } else {
+                    reject(response)
+                }
                 resolve(response.data)
             }, (error) => {
                 reject(error)

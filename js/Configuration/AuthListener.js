@@ -9,12 +9,12 @@ export let authListener = ['$rootScope', '$state', 'Factory', 'AuthService', 'AU
             }
         }
 
-        // if (!AuthService.isAuthenticated()) {
-        //     if (next.name !== 'login') {
-        //         event.preventDefault()
-        //         $state.go('login')
-        //         $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated)
-        //     }
-        // }
+        if (!AuthService.isAuthenticated()) {
+            if (next.name !== 'login') {
+                event.preventDefault()
+                $state.go('login')
+                $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated)
+            }
+        }
     })
 }]
