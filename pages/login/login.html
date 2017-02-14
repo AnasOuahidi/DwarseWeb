@@ -4,7 +4,7 @@
         <form novalidate angular-validator angular-validator-submit='authentifier()' name="authForm">
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="Login"
-                       ng-model="auth.login" name="login"
+                       ng-model="auth.login" name="login" autocomplete="off"
                        validator="validationLogin(auth.login)"
                        invalid-message="'Le login doit être alphanumérique et doit avoir au moins 5 caractères'"
                        required-message="'Ce champ est obligatoire'"
@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" placeholder="Password"
-                       ng-model="auth.password" name="password"
+                       ng-model="auth.password" name="password" autocomplete="off"
                        validator="validationPassword(auth.password)"
                        invalid-message="'Le mot de passe doit être alphanumérique et doit avoir au moins 5 caractères'"
                        required-message="'Ce champ est obligatoire'"

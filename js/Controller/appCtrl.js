@@ -5,7 +5,6 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
             template: require('./../../modals/notAuthorized.html'),
             size: 'md'
         })
-        $state.go('index', {}, {reload: true})
     })
 
     $scope.$on(AUTH_EVENTS.notAuthenticated, (event) => {
@@ -15,7 +14,6 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
             template: require('./../../modals/notAuthenticated.html'),
             size: 'md'
         })
-        $state.go('login', {}, {reload: true})
     })
 
     $scope.logout = () => {
