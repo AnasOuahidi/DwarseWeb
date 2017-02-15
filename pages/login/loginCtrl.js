@@ -1,8 +1,6 @@
 export let loginCtrl = ['$scope', 'AuthService', '$state', function($scope, AuthService, $state) {
     $('title').html('Login page')
-    $('body').css('background', "url('img/bg.jpg') no-repeat center center fixed")
-    $('body').css('-webkit-background-size', 'cover')
-    $('body').css('background-size', 'cover')
+    $('body').addClass('bg')
     $('nav').hide()
     $scope.auth = {
         login: "",

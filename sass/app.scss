@@ -3,3 +3,9 @@
 @import "lib/pickadate/classic.css";
 @import "lib/pickadate/classic.date.css";
 @import "lib/AuthTemplate/style.css";
+
+.bg {
+  background: url('../img/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
