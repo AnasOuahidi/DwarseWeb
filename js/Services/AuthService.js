@@ -16,26 +16,23 @@ export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory
         if (token && role) {
             isAuthenticated = true
         }
-        // Factory.token = token
-        // Factory.role = role
-        // Set the token as header for your requests!
-        // $http.defaults.headers.common['X-Auth-Token'] = token;
+        Factory.token = token
+        Factory.role = role
     }
 
     function destroyUserCredentials() {
         token = undefined
         role = undefined
         isAuthenticated = false
-        // $http.defaults.headers.common['X-Auth-Token'] = undefined
         delete $localStorage.token
         delete $localStorage.role
-        // Factory.token = null
-        // Factory.role = null
+        Factory.token = null
+        Factory.role = null
     }
 
     let login = function(login, password) {
         return $q(function(resolve, reject) {
-            $http.post("http://localhost:8000/auth/authtokens", {login, password}).then((response) => {
+            $http.post(Factory.url("/auth/authtokens"), {login, password}, Factory.jsonHerdersWithoutToken).then((response) => {
                 if (response.data.authToken && response.data.authToken.value && response.data.role) {
                     storeUserCredentials(response.data.authToken.value, response.data.role)
                 } else {

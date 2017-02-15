@@ -1,8 +1,5 @@
 export let authListener = ['$rootScope', '$state', 'Factory', 'AuthService', 'AUTH_EVENTS', function($rootScope, $state, Factory, AuthService, AUTH_EVENTS) {
     $rootScope.$on('$stateChangeStart', (event, next, nextParams, fromState, fromParams) => {
-        if (fromState.name === 'login' && next.name === 'index') {
-            location.reload()
-        }
         if (!AuthService.isAuthenticated()) {
             if (next.name !== 'login') {
                 event.preventDefault()
@@ -15,12 +12,14 @@ export let authListener = ['$rootScope', '$state', 'Factory', 'AuthService', 'AU
             var authorizedRoles = next.data.authorizedRoles
             if (!AuthService.isAuthorized(authorizedRoles)) {
                 event.preventDefault()
-                $state.go('index')
-                // $state.go(fromState.name)
-                // $state.go($state.current)
+                $state.go(fromState.name)
                 $rootScope.$broadcast(AUTH_EVENTS.notAuthorized)
                 return;
             }
+        }
+        if (fromState.name === 'login' && next.name === 'index') {
+            location.reload()
+            return;
         }
     })
 }]
