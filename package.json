@@ -5,7 +5,7 @@
 	"scripts": {
 		"updates": "npm-check-updates -u",
 		"page": "node ./build/generate-page.js",
-		"build": "rimraf assets && node ./build/generate-template.js && webpack --config ./build/webpack.prod.js",
+		"build": "rimraf assets && node ./build/generate-template.js && webpack --config ./build/webpack.prod.js && ./build/script.sh",
 		"dev": "node ./build/server.js",
 		"gh": "npm run build && gh-pages -d dist"
 	},
