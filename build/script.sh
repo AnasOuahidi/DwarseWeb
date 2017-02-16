@@ -6,3 +6,4 @@ git commit -m "Commit"
 git remote add origin https://dwarse:dwarse123@github.com/dwarse/dwarse.github.io.git
 git push -u origin master --force
 cd ../
+xdg-open https://dwarse.github.io/
