@@ -11,9 +11,6 @@ export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', funct
             url: '/',
             template: require('./../../pages/index/index.html'),
             controller: 'indexCtrl'
-            // data: {
-            //     authorizedRoles: [USER_ROLES.employeur, USER_ROLES.employe, USER_ROLES.commercant]
-            // }
         })
     $urlRouterProvider.otherwise(($injector, $location) => {
         let state = $injector.get('$state')

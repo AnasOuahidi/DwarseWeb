@@ -13,6 +13,7 @@ Array.prototype.contains = function(element) {
     return this.indexOf(element) > -1
 }
 var func3 = function(url, name, path, htmlFileName, htmlFileContent, jsFileName, jsFileContent, appJsFileImport, appJsFileCtrl) {
+    let routeJsFileContentArray
     let rolesAuto = []
     let autorizedRoles = `                authorizedRoles: [`
     for (let i = 0; i < roles.length; i++) {
@@ -31,7 +32,7 @@ var func3 = function(url, name, path, htmlFileName, htmlFileContent, jsFileName,
         func3(url, name, path, htmlFileName, htmlFileContent, jsFileName, jsFileContent, appJsFileImport, appJsFileCtrl)
     } else {
         if (rolesAuto.length == roles.length) {
-            let routeJsFileContentArray = [
+            routeJsFileContentArray = [
                 `        .state('${name}', {`,
                 `            cache: false,`,
                 `            url: '${url}',`,
@@ -40,7 +41,7 @@ var func3 = function(url, name, path, htmlFileName, htmlFileContent, jsFileName,
                 `        })`
             ]
         } else {
-            let routeJsFileContentArray = [
+            routeJsFileContentArray = [
                 `        .state('${name}', {`,
                 `            cache: false,`,
                 `            url: '${url}',`,
@@ -79,7 +80,7 @@ var func3 = function(url, name, path, htmlFileName, htmlFileContent, jsFileName,
                     console.log('Router.js a bien été configuré!')
                 })
                 setTimeout(function() {
-                    console.log('\n \nVisitez l\'url /#' + url + 'pour voir le résultat')
+                    console.log('\n \nVisitez l\'url /#' + url + ' pour voir le résultat')
                 }, 400)
             })
         } else {
@@ -121,10 +122,9 @@ var func1 = function() {
             let htmlFileName = path + '/' + name + '.html'
             let htmlFileContent = '<h1>' + name + ' is created!</h1>'
             let jsFileName = path + '/' + name + 'Ctrl.js'
-            let jsFileContent = `export let ${name}Ctrl = ['$scope', function($scope) {` +
-                `    $('title').html('${name}')` +
-                `}]` +
-                ``
+            let jsFileContent = `export let ${name}Ctrl = ['$scope', function($scope) {\n` +
+                `    $('title').html('${name}')\n` +
+                `}]\n`
             let appJsFileImport = `import {${name}Ctrl} from '../pages/${name}/${name}Ctrl'`
             let appJsFileCtrl = `    .controller('${name}Ctrl', ${name}Ctrl)`
             func2(name, path, htmlFileName, htmlFileContent, jsFileName, jsFileContent, appJsFileImport, appJsFileCtrl)
