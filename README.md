@@ -14,11 +14,11 @@ Lancer en environnement de developpement
 ```
 npm run dev
 ```
-Build pour l'environnement de production
+Build pour l'environnement de production et déploiement
 ```
 npm run build
 ```
-Generate a new page
+Generer une nouvelle page
 ```
 npm run page
 ```
