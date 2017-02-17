@@ -5,7 +5,7 @@ const webpack_base = require('./webpack.base')
 const config = require('./config')
 
 webpack_base.devtool = 'cheap-module-eval-source-map'
-webpack_base.output.publicPath = 'http://localhost:' + config.port + config.assets_url
+webpack_base.output.publicPath = 'http://localhost:' + config.port + config.assets_dev_url
 webpack_base.output.path = '/tmp/'
 for (var name in webpack_base.entry) {
     webpack_base.entry[name] = [path.resolve(__dirname, './server-client'), ...webpack_base.entry[name]]

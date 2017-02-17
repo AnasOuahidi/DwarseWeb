@@ -5,6 +5,7 @@ module.exports = {
     port: 3003,
     html: true,
     assets_url: '',
+    assets_dev_url: '/',
     assets_path: './assets/',
     refresh: ['./index.html', './pages/**/*.html']
 }
