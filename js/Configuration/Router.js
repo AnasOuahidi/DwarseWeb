@@ -1,5 +1,11 @@
 export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', function($stateProvider, $urlRouterProvider, USER_ROLES) {
     $stateProvider
+        .state('confirm', {
+            cache: false,
+            url: '/confirm/:token',
+            template: require('./../../pages/confirm/confirm.html'),
+            controller: 'confirmCtrl'
+        })
         .state('login', {
             cache: false,
             url: '/login',

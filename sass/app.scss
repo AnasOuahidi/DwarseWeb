@@ -10,8 +10,35 @@
   background-size: cover;
 }
 
+.loader {
+  margin-left: 80px;
+  margin-top: -80px;
+}
+
 .logo {
   position: absolute;
   right: 15px;
   bottom: 15px;
+}
+
+.login {
+  font-size: 18px;
+}
+
+.error-server {
+  font-size: 22px;
+  font-weight: bolder;
+  color: darkred;
+}
+
+.login label {
+  font-size: 18px;
+}
+
+.password {
+  font-size: 18px;
+}
+
+.password label {
+  font-size: 18px;
 }

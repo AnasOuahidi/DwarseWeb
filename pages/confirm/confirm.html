@@ -1,0 +1,21 @@
+<div class="inner-container">
+    <div class="box">
+        <h1>Confirmation</h1>
+        <img ng-show="showLoader" class="loader" src="./../../img/loader.gif" alt="loader" height="250px">
+        <div ng-show="tokenError">
+            <h4 class="text-center" ng-show="tokenError">Votre token n'est pas valide! Assurez-vous de cliquer sur le
+                lien que vous avez reçu par mail!</h4>
+            <button type="button" ng-click="goInscription()">S'inscrire</button>
+        </div>
+        <div ng-show="hasError">
+            <h4 class="text-center">{{messageError}}</h4>
+            <button type="button" ng-click="goInscription()">S'inscrire</button>
+        </div>
+        <div ng-show="withSuccess">
+            <h4 class="text-center">{{ userLogin | ucfirst }}, Votre compte est désormais confirmé <br> L'équipe Dwarse
+                vous remercie pour votre inscription</h4>
+            <button type="button" ng-click="goConnexion()">Se Connecter</button>
+        </div>
+    </div>
+</div>
+<img src="./../../img/logo.png" alt="logo" class="logo" height="15%">
