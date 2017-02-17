@@ -1,5 +1,11 @@
 export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', function($stateProvider, $urlRouterProvider, USER_ROLES) {
     $stateProvider
+        .state('inscription', {
+            cache: false,
+            url: '/inscription',
+            template: require('./../../pages/inscription/inscription.html'),
+            controller: 'inscriptionCtrl'
+        })
         .state('confirm', {
             cache: false,
             url: '/confirm/:token',

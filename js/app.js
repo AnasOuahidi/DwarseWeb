@@ -1,5 +1,6 @@
 require('./Libraries/imports')
 
+import {inscriptionCtrl} from '../pages/inscription/inscriptionCtrl'
 import {confirmCtrl} from '../pages/confirm/confirmCtrl'
 import {indexCtrl} from '../pages/index/indexCtrl'
 import {loginCtrl} from '../pages/login/loginCtrl'
@@ -33,3 +34,4 @@ window.angular.module('dwarse', [
     .controller('loginCtrl', loginCtrl)
     .controller('indexCtrl', indexCtrl)
     .controller('confirmCtrl', confirmCtrl)
+    .controller('inscriptionCtrl', inscriptionCtrl)
