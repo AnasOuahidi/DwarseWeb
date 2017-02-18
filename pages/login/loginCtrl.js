@@ -44,6 +44,7 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', function($scope, Auth
     })
     $scope.authentifier = function() {
         AuthService.login($scope.auth.login, $scope.auth.password).then((data) => {
+            console.log(data)
             // check if it's the first time
             $state.go('index', {}, {reload: true})
         }, function(err) {
