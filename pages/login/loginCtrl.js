@@ -1,46 +1,50 @@
 export let loginCtrl = ['$scope', 'AuthService', '$state', function($scope, AuthService, $state) {
-    $('title').html('Login page')
+    $('title').html('Login')
     $('body').addClass('bg')
     $('nav').hide()
-    $scope.ajuster = function(form) {
-        if (!form.$valid) {
-            setTimeout(function() {
-                $('label').addClass('text-center')
-            }, 0)
-            if (form.$error.required && form.$error.required.length === 1) {
-                $('.inner-container').height('36%')
+    $scope.type = 'password'
+    $scope.icone = 'fa-eye'
+    $scope.showPassword = function() {
+        $scope.type = 'text'
+        $scope.icone = 'fa-eye-slash'
+    }
+    $scope.hidePassword = function() {
+        $scope.type = 'password'
+        $scope.icone = 'fa-eye'
+    }
+    $('.form').find('input, textarea').on('keyup blur focus', function(e) {
+        var $this = $(this),
+            label = $this.prev('label')
+        if (e.type === 'keyup') {
+            if ($this.val() === '') {
+                label.removeClass('active highlight')
+                label.removeClass('activePass highlight')
+            } else {
+                if ($this.attr('id') == 'password' || $this.attr('id') == 'password2') {
+                    label.addClass('activePass highlight')
+                } else {
+                    label.addClass('active highlight')
+                }
             }
-            if (form.$error.angularValidator && form.$error.angularValidator.length === 1) {
-                $('.inner-container').height('41%')
-            } else if (form.$error.angularValidator && form.$error.angularValidator.length === 2) {
-                $('.inner-container').height('49%')
+        } else if (e.type === 'blur') {
+            if ($this.val() === '') {
+                label.removeClass('active highlight')
+                label.removeClass('activePass highlight')
+            } else {
+                label.removeClass('highlight')
             }
-            if (form.$error.angularValidator && form.$error.angularValidator.length === 2 && form.$error.required && form.$error.required.length === 1) {
-                $('.inner-container').height('46%')
+        } else if (e.type === 'focus') {
+            if ($this.val() === '') {
+                label.removeClass('highlight')
             }
-            if (form.$error.required && form.$error.required.length === 2) {
-                $('.inner-container').height('41%')
-            }
-            if (form.$error.angularValidator) {
-                setTimeout(function() {
-                    for (let i = 0; i < form.$error.angularValidator.length; i++) {
-                        $('.' + form.$error.angularValidator[i].$name + ' label').css('margin-left', '14%')
-                        $('.' + form.$error.angularValidator[i].$name + ' label').css('margin-right', '12%')
-                    }
-                }, 0)
-            }
-            if (form.$error.required) {
-                setTimeout(function() {
-                    for (let i = 0; i < form.$error.required.length; i++) {
-                        $('.' + form.$error.required[i].$name + ' label').css('margin-left', '22%')
-                        $('.' + form.$error.required[i].$name + ' label').css('margin-right', '22%')
-                    }
-                }, 0)
+            else if ($this.val() !== '') {
+                label.addClass('highlight')
             }
         }
-    }
+    })
     $scope.authentifier = function() {
         AuthService.login($scope.auth.login, $scope.auth.password).then((data) => {
+            // check if it's the first time
             $state.go('index', {}, {reload: true})
         }, function(err) {
             if (err.status == 400) {
@@ -49,5 +53,8 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', function($scope, Auth
             }
             console.log(err)
         })
+    }
+    $scope.goInscription = function() {
+        $state.go('inscription', {}, {reload: true})
     }
 }]

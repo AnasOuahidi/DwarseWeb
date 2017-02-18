@@ -1,29 +1,36 @@
-<div class="inner-container">
-    <div class="box">
-        <h1>Authentification</h1>
-        <form novalidate angular-validator angular-validator-submit='authentifier()' name="authForm">
-            <div class="form-group login">
-                <input class="form-control" type="text" placeholder="Login"
-                       ng-model="auth.login" name="login" autocomplete="off"
-                       validator="validationLogin(auth.login)"
-                       invalid-message="'Le login doit être alphanumérique et doit avoir au moins 5 caractères'"
-                       required-message="'Ce champ est obligatoire'"
-                       validate-on="submit"
-                       required/>
-            </div>
-            <div class="form-group password">
-                <input class="form-control" type="password" placeholder="Password"
-                       ng-model="auth.password" name="password" autocomplete="off"
-                       validator="validationPassword(auth.password)"
-                       invalid-message="'Le mot de passe doit être alphanumérique et doit avoir au moins 5 caractères'"
-                       required-message="'Ce champ est obligatoire'"
-                       validate-on="submit"
-                       required/>
-            </div>
-            <h5 class="text-center error-server">{{error}}</h5>
-            <button type="submit" ng-click="ajuster(authForm)">Se Connecter</button>
-            <p>Pas encore membre? <span>S'inscrire</span></p>
-        </form>
+<div class="form">
+    <div class="tab-content">
+        <div id="employeur">
+            <h1>Dites adieu aux tickets resto</h1>
+            <form novalidate angular-validator angular-validator-submit='authentifier()' name="authForm">
+                <div class="field-wrap">
+                    <label for="login">
+                        Login<span class="req">*</span>
+                    </label>
+                    <input type="text" ng-model="auth.login" name="login"
+                           validator="validationLogin(auth.login)" id="login"
+                           invalid-message="'Ce champs n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                </div>
+                <div class="field-wrap">
+                    <label for="password">
+                        Mot de passe<span class="req">*</span>
+                    </label>
+                    <input type="{{ type }}" ng-model="auth.password" name="password"
+                           validator="validationLogin(auth.password)" id="password"
+                           invalid-message="'n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                    <span ng-mouseup="hidePassword()" ng-mousedown="showPassword()" class="fa {{ icone }} fa-2x eye"
+                          aria-hidden="true"></span>
+                </div>
+                <p class="text-center error-server">{{error}}</p>
+                <p class="text-center secon">Pas encore membre? <a href ng-click="goInscription()"><span>S'inscrire</span></a></p>
+                <button type="submit" class="button button-block">Se Connecter</button>
+            </form>
+        </div>
+        <div id="commercant"></div>
     </div>
 </div>
 <img src="./../../img/logo.png" alt="logo" class="logo" height="15%">

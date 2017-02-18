@@ -2,7 +2,8 @@
 @import "lib/font-awesome/font-awesome";
 @import "lib/pickadate/classic.css";
 @import "lib/pickadate/classic.date.css";
-@import "lib/AuthTemplate/style.css";
+@import "lib/InscriptionTemplate/styles";
+@import "lib/sweetalert/sweetalert.css";
 
 .bg {
   background: url('./../img/bg.jpg') no-repeat center center fixed;
@@ -41,4 +42,8 @@
 
 .password label {
   font-size: 18px;
+}
+
+.secon{
+  font-size: 17px;
 }

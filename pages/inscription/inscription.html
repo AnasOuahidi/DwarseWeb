@@ -1,1 +1,91 @@
-<h1>inscription is created!</h1>
+<div class="form">
+    <ul class="tab-group">
+        <li class="tab active"><a href="#employeur">Employeur</a></li>
+        <li class="tab"><a href="#commercant">Commerçant</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="employeur">
+            <h1>Dites adieu aux tickets resto</h1>
+            <form novalidate angular-validator angular-validator-submit='inscription(inscrFormEmployeur)'
+                  name="inscrFormEmployeur">
+                <div class="field-wrap">
+                    <label for="login">
+                        Login<span class="req">*</span>
+                    </label>
+                    <input type="text" ng-model="inscr.login" name="login"
+                           validator="validationLogin(inscr.login)" id="login"
+                           invalid-message="'Ce champs n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                </div>
+                <div class="field-wrap">
+                    <label for="email">
+                        Email<span class="req">*</span>
+                    </label>
+                    <input type="email" ng-model="inscr.email" name="email"
+                           validator="validationLogin(inscr.login)" id="email"
+                           invalid-message="'Cet email n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                </div>
+                <div class="field-wrap">
+                    <label for="password">
+                        Mot de passe<span class="req">*</span>
+                    </label>
+                    <input type="{{ type }}" ng-model="inscr.plainPassword" name="plainPassword"
+                           validator="validationLogin(inscr.plainPassword)" id="password"
+                           invalid-message="'n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                    <span ng-mouseup="hidePassword()" ng-mousedown="showPassword()" class="fa {{ icone }} fa-2x eye"
+                          aria-hidden="true"></span>
+                </div>
+                <p class="text-center error-server">{{error}}</p>
+                <p class="text-center secon">Déja inscrit? <a href ng-click="goConnexion()"><span>Se connecter</span></a></p>
+                <button type="submit" class="button button-block">S'inscrire</button>
+            </form>
+        </div>
+        <div id="commercant">
+            <h1>Dites adieu aux tickets resto</h1>
+            <form novalidate angular-validator angular-validator-submit='inscription(inscFormCommercant)'
+                  name="inscFormCommercant">
+                <div class="field-wrap">
+                    <label for="login2">
+                        Login<span class="req">*</span>
+                    </label>
+                    <input type="text" ng-model="inscr.login" name="login"
+                           validator="validationLogin(inscr.login)" id="login2"
+                           invalid-message="'Ce champs n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                </div>
+                <div class="field-wrap">
+                    <label for="email2">
+                        Email<span class="req">*</span>
+                    </label>
+                    <input type="email" ng-model="inscr.email" name="email"
+                           validator="validationLogin(inscr.login)" id="email2"
+                           invalid-message="'Cet email n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                </div>
+                <div class="field-wrap">
+                    <label for="password2">
+                        Mot de passe<span class="req">*</span>
+                    </label>
+                    <input type="{{ type }}" ng-model="inscr.plainPassword" name="plainPassword"
+                           validator="validationLogin(inscr.plainPassword)" id="password2"
+                           invalid-message="'n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required autocomplete="off"/>
+                    <span ng-mouseup="hidePassword()" ng-mousedown="showPassword()" class="fa {{ icone }} fa-2x eye"
+                          aria-hidden="true"></span>
+                </div>
+                <p class="text-center error-server">{{error}}</p>
+                <p class="text-center secon">Déja inscrit? <a href ng-click="goConnexion()"><span>Se connecter</span></a></p>
+                <button type="submit" class="button button-block">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+</div>
+<img src="./../../img/logo.png" alt="logo" class="logo" height="15%">
