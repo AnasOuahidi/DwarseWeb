@@ -3,7 +3,6 @@ const fse = require('fs-extra')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 const readlineSync = require('readline-sync')
-const roles = ['commercant', 'employe', 'employeur']
 function getDirectories(srcpath) {
     return fs.readdirSync(srcpath)
         .filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
