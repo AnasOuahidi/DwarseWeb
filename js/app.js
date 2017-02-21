@@ -1,9 +1,11 @@
 require('./Libraries/imports')
 
-import {inscriptionCtrl} from '../pages/inscription/inscriptionCtrl'
-import {confirmCtrl} from '../pages/confirm/confirmCtrl'
-import {indexCtrl} from '../pages/index/indexCtrl'
+import {commercantIndexCtrl} from '../pages/commercant/index/commercantIndexCtrl'
+import {employeurIndexCtrl} from '../pages/employeur/index/employeurIndexCtrl'
+import {employeIndexCtrl} from '../pages/employe/index/employeIndexCtrl'
 import {loginCtrl} from '../pages/login/loginCtrl'
+import {confirmCtrl} from '../pages/confirm/confirmCtrl'
+import {inscriptionCtrl} from '../pages/inscription/inscriptionCtrl'
 import {appCtrl} from './Controller/appCtrl'
 import {ucfirst} from './Filters/ucfirst'
 import {Factory} from './Services/Factory'
@@ -31,7 +33,9 @@ window.angular.module('dwarse', [
     .factory('Factory', Factory)
     .filter('ucfirst', ucfirst)
     .controller('appCtrl', appCtrl)
-    .controller('loginCtrl', loginCtrl)
-    .controller('indexCtrl', indexCtrl)
-    .controller('confirmCtrl', confirmCtrl)
     .controller('inscriptionCtrl', inscriptionCtrl)
+    .controller('confirmCtrl', confirmCtrl)
+    .controller('loginCtrl', loginCtrl)
+    .controller('employeIndexCtrl', employeIndexCtrl)
+    .controller('employeurIndexCtrl', employeurIndexCtrl)
+    .controller('commercantIndexCtrl', commercantIndexCtrl)

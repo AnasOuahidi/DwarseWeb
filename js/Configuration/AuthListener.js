@@ -17,9 +17,5 @@ export let authListener = ['$rootScope', '$state', 'Factory', 'AuthService', 'AU
                 return;
             }
         }
-        if (fromState.name === 'login' && next.name === 'index') {
-            location.reload()
-            return;
-        }
     })
 }]

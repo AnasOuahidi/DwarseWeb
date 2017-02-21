@@ -1,4 +1,4 @@
-export let loginCtrl = ['$scope', 'AuthService', '$state', function($scope, AuthService, $state) {
+export let loginCtrl = ['$scope', 'AuthService', '$state', 'USER_ROLES', function($scope, AuthService, $state, USER_ROLES) {
     $('title').html('Login')
     $('body').addClass('bg')
     $('nav').hide()
@@ -46,10 +46,17 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', function($scope, Auth
         AuthService.login($scope.auth.login, $scope.auth.password).then((data) => {
             console.log(data)
             // check if it's the first time
-            $state.go('index', {}, {reload: true})
+            if (data.role == USER_ROLES.employe) {
+                return $state.go('employe.index', {}, {reload: true})
+            }
+            if (data.role == USER_ROLES.employeur) {
+                return $state.go('employeur.index', {}, {reload: true})
+            }
+            if (data.role == USER_ROLES.commercant) {
+                return $state.go('commercant.index', {}, {reload: true})
+            }
         }, function(err) {
             if (err.status == 400) {
-                $('.inner-container').height('36%')
                 $scope.error = err.data.message
             }
             console.log(err)
