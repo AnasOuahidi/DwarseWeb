@@ -14,7 +14,6 @@ $normal: 400;
 $bold: 600;
 $br: 4px;
 
-
 .form a {
   text-decoration: none;
   color: $main;
@@ -88,24 +87,6 @@ $br: 4px;
   .req {
     margin: 2px;
     color: $main;
-  }
-}
-
-.form label.active {
-  transform: translateX(460px) translateY(8px);
-  left: 2px;
-  font-size: 14px;
-  .req {
-    opacity: 0;
-  }
-}
-
-.form label.activePass {
-  transform: translateX(380px) translateY(8px);
-  left: 2px;
-  font-size: 14px;
-  .req {
-    opacity: 0;
   }
 }
 
@@ -189,9 +170,99 @@ $br: 4px;
   font-size: 14px;
 }
 
-.form .eye {
-  margin-left: 480px;
-  position: relative;
-  top: -34px;
-  cursor: pointer;
+@media only screen and (min-width: 500px) {
+  .form .eye {
+    margin-left: 480px;
+    position: relative;
+    top: -34px;
+    cursor: pointer;
+  }
+
+  .form label.active {
+    transform: translateX(460px) translateY(8px);
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
+
+  .form label.activePass {
+    transform: translateX(380px) translateY(8px);
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .form .eye {
+    margin-left: 88%;
+    position: relative;
+    top: -34px;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+  .form label.active {
+    transform: translateX(285px) translateY(8px);
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
+
+  .form label.activePass {
+    transform: translateX(195px) translateY(8px);
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
+}
+
+
+@media only screen and (min-width: 350px) and (max-width: 400px) {
+  .form label.active {
+    transform: translateX(228px) translateY(8px);
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
+
+  .form label.activePass {
+    transform: translateX(145px) translateY(8px);
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .form label.active {
+    display: none;
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
+
+  .form label.activePass {
+    display: none;
+    left: 2px;
+    font-size: 14px;
+    .req {
+      opacity: 0;
+    }
+  }
 }
