@@ -48,19 +48,19 @@ export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', funct
         .state('inscription', {
             cache: false,
             url: '/inscription',
-            template: require('./../../pages/inscription/inscription.html'),
+            template: require('./../../pages/public/inscription/inscription.html'),
             controller: 'inscriptionCtrl'
         })
         .state('confirm', {
             cache: false,
             url: '/confirm/:token',
-            template: require('./../../pages/confirm/confirm.html'),
+            template: require('./../../pages/public/confirm/confirm.html'),
             controller: 'confirmCtrl'
         })
         .state('login', {
             cache: false,
             url: '/login',
-            template: require('./../../pages/login/login.html'),
+            template: require('./../../pages/public/login/login.html'),
             controller: 'loginCtrl'
         })
     $urlRouterProvider.otherwise(($injector, $location) => {

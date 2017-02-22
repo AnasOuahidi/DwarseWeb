@@ -2,7 +2,7 @@
     <div class="tab-content">
         <div id="employeur">
             <h1>Confirmation</h1>
-            <img ng-show="showLoader" class="loader" src="./../../img/loader.gif" alt="loader" height="250px">
+            <img ng-show="showLoader" class="loader" src="./../../../img/loader.gif" alt="loader" height="250px">
             <div ng-show="tokenError">
                 <h4 class="text-center" ng-show="tokenError">Votre token n'est pas valide! Assurez-vous de cliquer sur le
                     lien que vous avez reçu par mail!</h4>
@@ -24,4 +24,4 @@
         <div id="commercant"></div>
     </div>
 </div>
-<img src="./../../img/logo.png" alt="logo" class="logo" height="15%">
+<img ng-if="showLogo" src="./../../../img/logo.png" alt="logo" class="logo" height="15%">

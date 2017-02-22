@@ -1,8 +1,10 @@
 export let inscriptionCtrl = ['$scope', '$http', '$state', 'Factory', function($scope, $http, $state, Factory) {
     $('title').html('Inscription')
     $('body').addClass('bg')
-    $('nav').hide()
-    // $('head').append('<link rel="stylesheet" type="text/css" href="https://dwarse.herokuapp.com/assets/css/app.css">')
+    $scope.showLogo = true
+    if ($(document).width() < 500) {
+        $scope.showLogo = false
+    }
     $scope.type = 'password'
     $scope.icone = 'fa-eye'
     $scope.showPassword = function() {
