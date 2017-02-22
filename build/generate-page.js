@@ -88,7 +88,7 @@ let demanderUrl = (name, role) => {
             generatePages(name, role, url, chemin)
         }
     } else {
-        let chemin = './pages/' + name
+        let chemin = './pages/public/' + name
         let url = readlineSync.question('Quelle est l\'url de la page? (par defaut: /' + name + ') \n')
         url = !url ? '/' + name : url
         if (url.substring(0, 1) != '/') {
@@ -127,7 +127,7 @@ let demanderNom = () => {
                 demanderUrl(name, role)
             }
         } else {
-            if (getDirectories('./pages').contains(name)) {
+            if (getDirectories('./pages/public').contains(name)) {
                 console.log(`Le nom: ${name} existe déjà!`)
                 demanderNom()
             } else {
