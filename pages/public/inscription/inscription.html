@@ -78,8 +78,9 @@
                            invalid-message="'n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>
-                    <span ng-mouseup="hidePassword()" ng-mousedown="showPassword()" class="fa {{ icone }} fa-2x eye"
-                          aria-hidden="true"></span>
+                    <span ng-mousedown="showPassword()" ng-mouseup="hidePassword()"
+                          ng-touchstart="showPassword()" ng-touchend="hidePassword()"
+                          class="fa {{ icone }} fa-2x eye" aria-hidden="true"></span>
                 </div>
                 <p class="text-center error-server">{{error}}</p>
                 <p class="text-center secon">Déja inscrit? <a href ng-click="goConnexion()"><span>Se connecter</span></a></p>

@@ -21,7 +21,8 @@ window.angular.module('dwarse', [
     'ui.bootstrap',
     'ngSanitize',
     'ngStorage',
-    'angularValidator'
+    'angularValidator',
+    'ngTouch'
 ])
     .config(router)
     .run(authListener)
