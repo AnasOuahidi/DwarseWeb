@@ -8,38 +8,21 @@ function getDirectories(srcpath) {
         .filter(file => fs.statSync(path.join(srcpath, file)).isDirectory())
 }
 String.prototype.capitalizeFirstLetter = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
+    return this.charAt(0).toUpperCase() + this.slice(1)
 }
 Array.prototype.contains = function(element) {
     return this.indexOf(element) > -1
 }
 let generatePages = (name, role, url, chemin) => {
     let ctrlName
-    let routeJsFileContentArray
+    let routeName
     let htmlFileName = chemin + '/' + name + '.html'
     if (role) {
         ctrlName = role + name.capitalizeFirstLetter() + 'Ctrl'
-        routeJsFileContentArray = [
-            `        .state('${role}.${name}', {`,
-            `            cache: false,`,
-            `            url: '${url}',`,
-            `            template: require('./../.${htmlFileName}'),`,
-            `            controller: '${ctrlName}',`,
-            `            data: {`,
-            `                authorizedRoles: [USER_ROLES.${role}]`,
-            `            }`,
-            `        })`
-        ]
+        routeName = role + '.' + name
     } else {
         ctrlName = name + 'Ctrl'
-        routeJsFileContentArray = [
-            `        .state('${name}', {`,
-            `            cache: false,`,
-            `            url: '${url}',`,
-            `            template: require('./../.${htmlFileName}'),`,
-            `            controller: '${ctrlName}'`,
-            `        })`
-        ]
+        routeName = name
     }
     let ctrlFile = ctrlName + '.js'
     let htmlFileContent = '<h1>' + name + ' is created!</h1>'
@@ -49,6 +32,14 @@ let generatePages = (name, role, url, chemin) => {
         `}]\n`
     let appJsFileImport = `import {${ctrlName}} from '.${chemin}/${ctrlName}'`
     let appJsFileCtrl = `    .controller('${ctrlName}', ${ctrlName})`
+    let routeJsFileContentArray = [
+        `        .state('${routeName}', {`,
+        `            cache: false,`,
+        `            url: '${url}',`,
+        `            template: require('./../.${htmlFileName}'),`,
+        `            controller: '${ctrlName}'`
+            `        })`
+    ]
     mkdirp(chemin, (err) => {
         if (err) return console.log(err)
         fse.writeFile(htmlFileName, htmlFileContent, (err) => {

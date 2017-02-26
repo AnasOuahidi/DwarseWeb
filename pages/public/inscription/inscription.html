@@ -23,7 +23,7 @@
                         Email<span class="req">*</span>
                     </label>
                     <input type="email" ng-model="inscr.email" name="email"
-                           validator="validationLogin(inscr.login)" id="email"
+                           validator="validationEmail(inscr.email)" id="email"
                            invalid-message="'Cet email n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>
@@ -33,7 +33,7 @@
                         Mot de passe<span class="req">*</span>
                     </label>
                     <input type="{{ type }}" ng-model="inscr.plainPassword" name="plainPassword"
-                           validator="validationLogin(inscr.plainPassword)" id="password"
+                           validator="validationPassword(inscr.plainPassword)" id="password"
                            invalid-message="'n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>
@@ -64,7 +64,7 @@
                         Email<span class="req">*</span>
                     </label>
                     <input type="email" ng-model="inscr.email" name="email"
-                           validator="validationLogin(inscr.login)" id="email2"
+                           validator="validationEmail(inscr.email)" id="email2"
                            invalid-message="'Cet email n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>
@@ -74,7 +74,7 @@
                         Mot de passe<span class="req">*</span>
                     </label>
                     <input type="{{ type }}" ng-model="inscr.plainPassword" name="plainPassword"
-                           validator="validationLogin(inscr.plainPassword)" id="password2"
+                           validator="validationPassword(inscr.plainPassword)" id="password2"
                            invalid-message="'n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>

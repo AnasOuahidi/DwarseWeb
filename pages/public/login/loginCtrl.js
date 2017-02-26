@@ -58,7 +58,7 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', 'USER_ROLES', functio
             if (data.role == USER_ROLES.commercant) {
                 return $state.go('commercant.index', {}, {reload: true})
             }
-        }, function(err) {
+        }, (err) => {
             if (err.status == 400) {
                 $scope.error = err.data.message
             }

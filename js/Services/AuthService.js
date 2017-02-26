@@ -35,10 +35,10 @@ export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory
             $http.post(Factory.url("/auth/login"), {login, password}, Factory.jsonHerdersWithoutToken).then((response) => {
                 if (response.data.authToken && response.data.authToken.value && response.data.role) {
                     storeUserCredentials(response.data.authToken.value, response.data.role)
+                    resolve(response.data)
                 } else {
                     reject(response)
                 }
-                resolve(response.data)
             }, (error) => {
                 reject(error)
             })
