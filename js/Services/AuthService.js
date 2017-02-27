@@ -20,16 +20,6 @@ export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory
         Factory.role = role
     }
 
-    function destroyUserCredentials() {
-        token = undefined
-        role = undefined
-        isAuthenticated = false
-        delete $localStorage.token
-        delete $localStorage.role
-        Factory.token = null
-        Factory.role = null
-    }
-
     let login = function(login, password) {
         return $q(function(resolve, reject) {
             $http.post(Factory.url("/auth/login"), {login, password}, Factory.jsonHerdersWithoutToken).then((response) => {
@@ -46,7 +36,13 @@ export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory
     }
 
     let logout = function() {
-        destroyUserCredentials()
+        token = undefined
+        role = undefined
+        isAuthenticated = false
+        delete $localStorage.token
+        delete $localStorage.role
+        Factory.token = null
+        Factory.role = null
     }
 
     let isAuthorized = function(authorizedRoles) {

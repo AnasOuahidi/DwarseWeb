@@ -21,58 +21,34 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
         $state.go('login', {}, {reload: true})
     }
 
-    $scope.validateInteger = (number) => {
-        return window._.isInteger(number)
-    }
-
     $scope.validateAlphanumerique = (text) => {
         let textString = text + ''
         let str = textString.replace(/\s+/g, '')
-        if (window.validator.isAlphanumeric(str)) {
-            return true
-        }
-        return false
+        return window.validator.isAlphanumeric(str)
     }
 
     $scope.validationEmail = (text) => {
-        if (text) {
-            let filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
-            if (filter.test(text)) {
-                return true
-            }
-        }
-        return false
+        let textString = text + ''
+        let filter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
+        return filter.test(textString)
     }
 
     $scope.validationLogin = (login) => {
-        if (login) {
-            if ($scope.validationEmail(login)) {
-                return true
-            } else if (!$scope.validateAlphanumerique(login)) {
-                return false
-            }
-            if (login.length > 5) {
-                return true
-            } else {
-                return false
-            }
-        } else {
+        if (login && $scope.validationEmail(login)) {
+            return true
+        }
+        if (!login || !$scope.validateAlphanumerique(login) || login.length <= 5) {
             return false
+        } else {
+            return true
         }
     }
 
     $scope.validationPassword = (password) => {
-        if (password) {
-            if (!$scope.validateAlphanumerique(password)) {
-                return false
-            }
-            if (password.length > 5) {
-                return true
-            } else {
-                return false
-            }
-        } else {
+        if (!password || !$scope.validateAlphanumerique(password) || password.length <= 5) {
             return false
+        } else {
+            return true
         }
     }
 }]
