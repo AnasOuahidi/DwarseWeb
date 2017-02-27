@@ -6,8 +6,8 @@
     <div class="tab-content">
         <div id="employeur">
             <h1>Dites adieu aux tickets resto</h1>
-            <form novalidate angular-validator angular-validator-submit='inscription(inscrFormEmployeur)'
-                  name="inscrFormEmployeur">
+            <form novalidate angular-validator angular-validator-submit='inscription(inscFormEmployeur)'
+                  name="inscFormEmployeur">
                 <div class="field-wrap">
                     <label for="login">
                         Login<span class="req">*</span>
@@ -34,7 +34,7 @@
                     </label>
                     <input type="{{ type }}" ng-model="inscr.plainPassword" name="plainPassword"
                            validator="validationPassword(inscr.plainPassword)" id="password"
-                           invalid-message="'n\'est pas valide!'"
+                           invalid-message="'Ce champ n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>
                     <span ng-mousedown="showPassword()" ng-mouseup="hidePassword()"
@@ -77,7 +77,7 @@
                     </label>
                     <input type="{{ type }}" ng-model="inscr.plainPassword" name="plainPassword"
                            validator="validationPassword(inscr.plainPassword)" id="password2"
-                           invalid-message="'n\'est pas valide!'"
+                           invalid-message="'Ce champ n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>
                     <span ng-mousedown="showPassword()" ng-mouseup="hidePassword()"

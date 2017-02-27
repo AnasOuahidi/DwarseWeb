@@ -6,14 +6,14 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', 'USER_ROLES', functio
         $scope.showLogo = false
     }
     $scope.type = 'password'
-    $scope.icone = 'fa-eye'
+    $scope.icone = 'fa-eye-slash'
     $scope.showPassword = function() {
         $scope.type = 'text'
-        $scope.icone = 'fa-eye-slash'
+        $scope.icone = 'fa-eye'
     }
     $scope.hidePassword = function() {
         $scope.type = 'password'
-        $scope.icone = 'fa-eye'
+        $scope.icone = 'fa-eye-slash'
     }
     $('.form').find('input, textarea').on('keyup blur focus', function(e) {
         var $this = $(this),

@@ -6,14 +6,14 @@ export let inscriptionCtrl = ['$scope', '$http', '$state', 'Factory', function($
         $scope.showLogo = false
     }
     $scope.type = 'password'
-    $scope.icone = 'fa-eye'
+    $scope.icone = 'fa-eye-slash'
     $scope.showPassword = function() {
         $scope.type = 'text'
-        $scope.icone = 'fa-eye-slash'
+        $scope.icone = 'fa-eye'
     }
     $scope.hidePassword = function() {
         $scope.type = 'password'
-        $scope.icone = 'fa-eye'
+        $scope.icone = 'fa-eye-slash'
     }
     $('.form').find('input, textarea').on('keyup blur focus', function(e) {
         var $this = $(this),
@@ -59,7 +59,7 @@ export let inscriptionCtrl = ['$scope', '$http', '$state', 'Factory', function($
     $scope.inscription = function(form) {
         if (form.$name === 'inscFormCommercant') {
             $scope.inscr.role = 'ROLE_COMMERCANT'
-        } else if (form.$name === 'inscrFormEmployeur') {
+        } else if (form.$name === 'inscFormEmployeur') {
             $scope.inscr.role = 'ROLE_EMPLOYEUR'
         }
         $http.post(Factory.url('/auth/users'), $scope.inscr, Factory.jsonHerdersWithoutToken).then(function(response) {
