@@ -1,10 +1,6 @@
 export let inscriptionCtrl = ['$scope', '$http', '$state', 'Factory', function($scope, $http, $state, Factory) {
     $('title').html('Inscription')
     $('body').addClass('bg')
-    $scope.showLogo = true
-    if ($(document).width() < 500) {
-        $scope.showLogo = false
-    }
     $scope.type = 'password'
     $scope.icone = 'fa-eye-slash'
     $scope.showPassword = function() {

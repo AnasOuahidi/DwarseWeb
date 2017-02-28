@@ -1,10 +1,6 @@
 export let loginCtrl = ['$scope', 'AuthService', '$state', 'USER_ROLES', function($scope, AuthService, $state, USER_ROLES) {
     $('title').html('Login')
     $('body').addClass('bg')
-    $scope.showLogo = true
-    if ($(document).width() < 500) {
-        $scope.showLogo = false
-    }
     $scope.type = 'password'
     $scope.icone = 'fa-eye-slash'
     $scope.showPassword = function() {

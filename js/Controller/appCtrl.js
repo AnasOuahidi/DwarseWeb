@@ -1,4 +1,9 @@
 export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory', 'AUTH_EVENTS', function($scope, $state, $uibModal, AuthService, Factory, AUTH_EVENTS) {
+    $scope.isMobile = false
+    if ($(document).width() < 500) {
+        $scope.isMobile = true
+    }
+    
     $scope.$on(AUTH_EVENTS.notAuthorized, (event, args) => {
         $uibModal.open({
             animation: true,
