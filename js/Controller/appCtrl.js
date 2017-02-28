@@ -4,21 +4,13 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
         $scope.isMobile = true
     }
     
-    $scope.$on(AUTH_EVENTS.notAuthorized, (event, args) => {
-        $uibModal.open({
-            animation: true,
-            template: require('./../../modals/notAuthorized.html'),
-            size: 'md'
-        })
+    $scope.$on(AUTH_EVENTS.notAuthorized, (event) => {
+        window.sweetAlert("Pas Autorisé !", "Vous n'avez pas le droit d'acceder à cette page !", "error")
     })
 
     $scope.$on(AUTH_EVENTS.notAuthenticated, (event) => {
         AuthService.logout()
-        $uibModal.open({
-            animation: true,
-            template: require('./../../modals/notAuthenticated.html'),
-            size: 'md'
-        })
+        window.sweetAlert("Session Perdu !", "Vous n'etes plus connecté !", "warning")
     })
 
     $scope.logout = () => {

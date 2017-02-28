@@ -1,7 +1,7 @@
 export let authListener = ['$rootScope', '$state', 'Factory', 'AuthService', 'AUTH_EVENTS', function($rootScope, $state, Factory, AuthService, AUTH_EVENTS) {
     $rootScope.$on('$stateChangeStart', (event, next, nextParams, fromState, fromParams) => {
         if (!AuthService.isAuthenticated()) {
-            if (next.name !== 'login' && next.name !== 'confirm' && next.name !== 'inscription') {
+            if ('data' in next && 'authorizedRoles' in next.data) {
                 event.preventDefault()
                 $state.go('login')
                 $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated)
