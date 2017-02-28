@@ -1,4 +1,4 @@
-export let loginCtrl = ['$scope', 'AuthService', '$state', 'USER_ROLES', function($scope, AuthService, $state, USER_ROLES) {
+export let loginCtrl = ['$scope', 'AuthService', '$state', '$http', 'USER_ROLES', 'Factory', function($scope, AuthService, $state, $http, USER_ROLES, Factory) {
     $('title').html('Login')
     $('body').addClass('bg')
     $scope.type = 'password'
@@ -42,23 +42,27 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', 'USER_ROLES', functio
         }
     })
     $scope.authentifier = function() {
-        AuthService.login($scope.auth.login, $scope.auth.password).then((data) => {
-            console.log(data)
-            // check if it's the first time
-            if (data.role == USER_ROLES.employe) {
-                return $state.go('employe.index', {}, {reload: true})
+        $http.post(Factory.url("/auth/login"), $scope.auth, Factory.jsonHerdersWithoutToken).then((response) => {
+            if (response.data.authToken && response.data.authToken.value && response.data.role) {
+                AuthService.login(response.data.authToken.value, response.data.role)
+                if (response.data.role == USER_ROLES.employe) {
+                    return $state.go('employe.index', {}, {reload: true})
+                }
+                if (response.data.role == USER_ROLES.employeur) {
+                    return $state.go('employeur.index', {}, {reload: true})
+                }
+                if (response.data.role == USER_ROLES.commercant) {
+                    return $state.go('commercant.index', {}, {reload: true})
+                }
+            } else {
+                $scope.error = "Problème thechnique!"
+                console.log(response)
             }
-            if (data.role == USER_ROLES.employeur) {
-                return $state.go('employeur.index', {}, {reload: true})
+        }, (error) => {
+            console.log(error)
+            if (error.status == 400) {
+                $scope.error = error.data.message
             }
-            if (data.role == USER_ROLES.commercant) {
-                return $state.go('commercant.index', {}, {reload: true})
-            }
-        }, (err) => {
-            if (err.status == 400) {
-                $scope.error = err.data.message
-            }
-            console.log(err)
         })
     }
     $scope.goInscription = function() {

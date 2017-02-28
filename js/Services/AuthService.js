@@ -1,14 +1,8 @@
-export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory', function($q, $http, USER_ROLES, $localStorage, Factory) {
+export let AuthService = ['$http', 'USER_ROLES', '$localStorage', 'Factory', function($http, USER_ROLES, $localStorage, Factory) {
     let token
     let role
     let isAuthenticated = false
     useCredentials()
-
-    function storeUserCredentials(token, role) {
-        $localStorage.token = token
-        $localStorage.role = role
-        useCredentials()
-    }
 
     function useCredentials() {
         token = $localStorage.token
@@ -20,19 +14,10 @@ export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory
         Factory.role = role
     }
 
-    let login = function(login, password) {
-        return $q(function(resolve, reject) {
-            $http.post(Factory.url("/auth/login"), {login, password}, Factory.jsonHerdersWithoutToken).then((response) => {
-                if (response.data.authToken && response.data.authToken.value && response.data.role) {
-                    storeUserCredentials(response.data.authToken.value, response.data.role)
-                    resolve(response.data)
-                } else {
-                    reject(response)
-                }
-            }, (error) => {
-                reject(error)
-            })
-        })
+    let login = function(token, role) {
+        $localStorage.token = token
+        $localStorage.role = role
+        useCredentials()
     }
 
     let logout = function() {
@@ -46,9 +31,6 @@ export let AuthService = ['$q', '$http', 'USER_ROLES', '$localStorage', 'Factory
     }
 
     let isAuthorized = function(authorizedRoles) {
-        if (!window.angular.isArray(authorizedRoles)) {
-            authorizedRoles = [authorizedRoles]
-        }
         return (isAuthenticated && authorizedRoles.indexOf(role) !== -1)
     }
 
