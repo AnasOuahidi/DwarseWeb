@@ -37,8 +37,8 @@ let generatePages = (name, role, url, chemin) => {
         `            cache: false,`,
         `            url: '${url}',`,
         `            template: require('./../.${htmlFileName}'),`,
-        `            controller: '${ctrlName}'`
-            `        })`
+        `            controller: '${ctrlName}'`,
+        `        })`
     ]
     mkdirp(chemin, (err) => {
         if (err) return console.log(err)

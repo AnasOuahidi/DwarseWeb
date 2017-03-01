@@ -1,5 +1,11 @@
 export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', function($stateProvider, $urlRouterProvider, USER_ROLES) {
     $stateProvider
+        .state('employe.profile', {
+            cache: false,
+            url: '/profile',
+            template: require('./../../pages/employe/profile/profile.html'),
+            controller: 'employeProfileCtrl'
+        })
         .state('commercant.index', {
             cache: false,
             url: '/',
