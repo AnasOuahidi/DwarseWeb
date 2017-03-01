@@ -23,7 +23,9 @@ window.angular.module('dwarse', [
     'ngSanitize',
     'ngStorage',
     'angularValidator',
-    'ngTouch'
+    'ngTouch',
+    'ngFileUpload'
+    //'ngImgCrop'
 ])
     .config(router)
     .run(authListener)
