@@ -48,4 +48,9 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
             return true
         }
     }
+    $scope.validationSiret = (siret) => {
+        let filter = /^[0-9]{14}$/
+        return filter.test(textString)
+    }
+
 }]
