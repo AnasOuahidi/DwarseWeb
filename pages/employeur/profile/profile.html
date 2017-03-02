@@ -26,7 +26,12 @@
             <div class="form-group">
                 <label for="siret" class="col-sm-4 control-label">Siret</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="siret" placeholder="Siret">
+                    <input class="form-control" id="siret" placeholder="Siret"
+                           type="text" ng-model="profile.siret" name="siret"
+                           validator="validationSiret(profile.siret)"
+                           invalid-message="'Le siret doit être composé de 14 chiffres, sans espace!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
                 </div>
             </div>
 

@@ -48,9 +48,23 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
             return true
         }
     }
-    $scope.validationSiret = (siret) => {
-        let filter = /^[0-9]{14}$/
-        return filter.test(textString)
+
+    $scope.validationTelephone = (telephone) => {
+        let filtre1 = /^[0-9]{14}$/
+        let filtre2 = /^[0-9]{10}$/
+        if (!telephone || !filter1.test(telephone) || !filter2.test(telephone)) {
+            return false
+        }
+        else {
+            return true
+        }
     }
 
+    $scope.validationSiret = (siret) =>{
+        let filter = /^[0-9]{14}$/
+        if (!siret || !filter.test(siret)) {
+            return false
+        }else
+            return true
+    }
 }]
