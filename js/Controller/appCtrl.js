@@ -52,7 +52,10 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
     $scope.validationTelephone = (telephone) => {
         let filtre1 = /^[0-9]{14}$/
         let filtre2 = /^[0-9]{10}$/
-        if (!telephone || !filter1.test(telephone) || !filter2.test(telephone)) {
+        if (!telephone) {
+            return false
+        }
+        if (!filtre2.test(telephone) && !filtre1.test(telephone)) {
             return false
         }
         else {
