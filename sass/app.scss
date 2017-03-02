@@ -58,3 +58,15 @@
 .fa-eye-slash {
   color: #A2A2A2;
 }
+
+.cropArea {
+  border: solid 1px #FFF;
+  background: #222222;
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+}
+
+.imageLabel {
+  margin-top: 12px;
+}

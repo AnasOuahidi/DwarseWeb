@@ -1,9 +1,10 @@
-<form class="form-horizontal">
+<form class="form-horizontal" name="form"
+      angular-validator-submit="sauvegarder(croppedDataUrl, picFile.name)" novalidate angular-validator>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
             <div class="form-group">
-                <label for="civilite" class="col-md-4 control-label">Civilité</label>
-                <div class="col-md-4">
+                <label for="civilite" class="col-sm-4 control-label">Civilité</label>
+                <div class="col-sm-4">
                     <select class="form-control" id="civilite">
                         <option selected disabled></option>
                         <option>Mr.</option>
@@ -11,63 +12,64 @@
                     </select>
                 </div>
             </div>
+            <br>
             <div class="form-group">
-                <label for="nom" class="col-md-4 control-label">Nom</label>
-                <div class="col-md-8">
+                <label for="nom" class="col-sm-4 control-label">Nom</label>
+                <div class="col-sm-8">
                     <input class="form-control" id="nom" placeholder="Nom" type="text">
                 </div>
             </div>
+            <br>
             <div class="form-group">
-                <label for="prenom" class="col-md-4 control-label">Prénom</label>
-                <div class="col-md-8">
+                <label for="prenom" class="col-sm-4 control-label">Prénom</label>
+                <div class="col-sm-8">
                     <input class="form-control" id="prenom" placeholder="Prénom" type="text">
                 </div>
             </div>
+            <br>
             <div class="form-group">
-                <label for="dateNaissance" class="col-md-4 control-label">Date de naissance</label>
-                <div class="col-md-8">
+                <label for="dateNaissance" class="col-sm-4 control-label">Date de naissance</label>
+                <div class="col-sm-8">
                     <input class="form-control datepicker" id="dateNaissance" placeholder="Date de naissance"
                            type="text">
                 </div>
             </div>
+            <br>
             <div class="form-group">
-                <label for="tel" class="col-md-4 control-label">N° Téléphone</label>
-                <div class="col-md-8">
+                <label for="tel" class="col-sm-4 control-label">N° téléphone</label>
+                <div class="col-sm-8">
                     <input class="form-control" id="tel" placeholder="N° Téléphone" type="text">
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-8 col-md-offset-4">
-                    <button type="reset" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="col-sm-8 col-sm-offset-4">
+                    <button type="reset" class="btn btn-default">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Valider</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <!--<div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="inputFile">Image: </label>
-                            <input type="button" class="btn btn-default" id="inputFile"
-                                   value="Veuillez choisir une image" ng-model="picFile"
-                                   ngf-select accept="image/*" name="photo" validate-on="submit"
-                                   required-message="'Ce champs est obligatoire.'" required>
-                        </div>
-                        <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
-                             class="cropArea">
-                            <img-crop image="picFile  | ngfDataUrl"
-                                      result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
-                            </img-crop>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div>
-                            <img ng-src="{{croppedDataUrl}}"/>
-                        </div>
-                    </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 col-sm-offset-1 imageLabel" for="inputFile">Image: </label>
+                <div class="col-sm-9">
+                    <input type="button" class="btn btn-default btn-block" id="inputFile"
+                           value="Veuillez choisir une image" ng-model="picFile"
+                           ngf-select accept="image/*" name="photo">
                 </div>
-            </div>-->
+            </div>
+            <div class="col-sm-6">
+                <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
+                     class="cropArea">
+                    <img-crop area-type="square" image="picFile  | ngfDataUrl"
+                              result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+                    </img-crop>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <img ng-src="{{croppedDataUrl}}"/>
+                </div>
+            </div>
         </div>
     </div>
 </form>
