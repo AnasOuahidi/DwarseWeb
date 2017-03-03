@@ -49,7 +49,7 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', '$http', 'USER_ROLES'
                     return $state.go('employe.index', {}, {reload: true})
                 }
                 if (response.data.role == USER_ROLES.employeur) {
-                    return $state.go('employeur.index', {}, {reload: true})
+                    return $state.go('employeur.profile', {}, {reload: true})
                 }
                 if (response.data.role == USER_ROLES.commercant) {
                     return $state.go('commercant.index', {}, {reload: true})

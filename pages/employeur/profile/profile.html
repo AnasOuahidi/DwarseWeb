@@ -4,24 +4,19 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label for="civilite" class="col-sm-4 control-label">Civilité</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="civilite">
+                <div class="col-sm-5">
+                    <select class="form-control" id="civilite"
+                            ng-model="profile.civilite" name="civilite"
+                            validator="validationCivilite(profile.civilite)"
+                            invalid-message="'Veuillez choisir une civilité'"
+                            required-message="'Ce champ est obligatoire'"
+                            validate-on="submit" required>
                         <option selected disabled></option>
-                        <option>Mr.</option>
-                        <option>Mme.</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mme.">Mme.</option>
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="libelle" class="col-sm-4 control-label">Libelle</label>
-                <div class="col-sm-8">
-                    <input class="form-control" id="libelle" placeholder="Libelle"
-                           type="text" ng-model="profile.libelle" name="libelle"
-                           required-message="'Ce champ est obligatoire'"
-                           validate-on="submit" required>
-                </div>
-            </div>
-
             <div class="form-group">
                 <label for="nom" class="col-sm-4 control-label">Nom</label>
                 <div class="col-sm-8">
@@ -40,7 +35,15 @@
                            validate-on="submit" required>
                 </div>
             </div>
-
+            <div class="form-group">
+                <label for="libelle" class="col-sm-4 control-label">Libelle</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="libelle" placeholder="Libelle"
+                           type="text" ng-model="profile.libelle" name="libelle"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="siret" class="col-sm-4 control-label">Siret</label>
                 <div class="col-sm-8">
@@ -52,29 +55,26 @@
                            validate-on="submit" required>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="telephone" class="col-sm-4 control-label">N° téléphone</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="telephone" placeholder="Telephone"
-                           type="text" ng-model="profile.telephone" name="telephone"
-                           validator="validationTelephone(profile.telephone)"
+                           type="text" ng-model="profile.numTel" name="telephone"
+                           validator="validationTelephone(profile.numTel)"
                            invalid-message="'Veuillez entrer un numéro de téléphone valide'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="adresse" class="col-sm-4 control-label">Adresse</label>
                 <div class="col-sm-8">
                     <textarea class="form-control" id="adresse" placeholder="Adresse"
                               type="text" ng-model="profile.adresse" name="adresse"
                               required-message="'Ce champ est obligatoire'"
-                              validate-on="submit" required>>
+                              validate-on="submit" required></textarea>
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-sm-8 col-sm-offset-4">
                     <button type="reset" class="btn btn-default">Annuler</button>
@@ -82,7 +82,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-sm-6">
             <div class="form-group">
                 <label class="col-sm-2 col-sm-offset-1 imageLabel" for="inputFile">Logo : </label>

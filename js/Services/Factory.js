@@ -2,8 +2,8 @@ export function Factory() {
     let factory = {
         token: null,
         role: null,
+        dns: 'http://dwarse.dev',
         // dns: 'http://localhost:8000',
-        dns: 'https://dwarse.herokuapp.com',
         jsonHerdersWithToken: {
             headers: {
                 'Accept': 'application/json',

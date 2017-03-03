@@ -3,7 +3,7 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
     if ($(document).width() < 500) {
         $scope.isMobile = true
     }
-    
+
     $scope.$on(AUTH_EVENTS.notAuthorized, (event) => {
         window.sweetAlert("Pas Autorisé !", "Vous n'avez pas le droit d'acceder à cette page !", "error")
     })
@@ -57,17 +57,25 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
         }
         if (!filtre2.test(telephone) && !filtre1.test(telephone)) {
             return false
-        }
-        else {
+        } else {
             return true
         }
     }
 
-    $scope.validationSiret = (siret) =>{
+    $scope.validationSiret = (siret) => {
         let filter = /^[0-9]{14}$/
         if (!siret || !filter.test(siret)) {
             return false
-        }else
+        } else {
             return true
+        }
+    }
+
+    $scope.validationCivilite = (civilite) => {
+        if (civilite === 'Mr.' || civilite === 'Mme.') {
+            return true
+        } else {
+            return false
+        }
     }
 }]
