@@ -1,37 +1,25 @@
 export function Factory() {
     let factory = {
         token: null,
-        role: null,
         // dns: 'http://localhost:8000',
-        dns: 'https://dwarse.herokuapp.com',
-        jsonHerdersWithToken: {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'X-Auth-Token': this.token
-            }
-        },
-        jsonHerdersWithoutToken: {
+        dns: 'http://dwarse.dev',
+        jsonHerders: {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         },
-        xmlHerdersWithToken: {
-            headers: {
-                'Accept': 'application/xml',
-                'Content-Type': 'application/xml',
-                'X-Auth-Token': this.token
-            }
-        },
-        xmlHerdersWithoutToken: {
+        xmlHerders: {
             headers: {
                 'Accept': 'application/xml',
                 'Content-Type': 'application/xml'
             }
         },
         url(url) {
-            return `${this.dns}${url}`
+            if (url === '/auth/authtokens' || url === '/auth/users' || url === '/auth/login') {
+                return `${this.dns}${url}`
+            }
+            return `${this.dns}${url}?token=${this.token}`
         }
     }
     return factory

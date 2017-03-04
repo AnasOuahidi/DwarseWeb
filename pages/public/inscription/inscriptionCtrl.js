@@ -58,10 +58,10 @@ export let inscriptionCtrl = ['$scope', '$http', '$state', 'Factory', function($
         } else if (form.$name === 'inscFormEmployeur') {
             $scope.inscr.role = 'ROLE_EMPLOYEUR'
         }
-        $http.post(Factory.url('/auth/users'), $scope.inscr, Factory.jsonHerdersWithoutToken).then(function(response) {
+        $http.post(Factory.url('/auth/users'), $scope.inscr, Factory.jsonHerders).then((response) => {
             window.swal("Bravo", "Votre compte a été crée, un mail vous a été envoyé pour le confirmer", "success")
             $state.go('login')
-        }, function(error) {
+        }, (error) => {
             if (error.status == 400) {
                 $scope.error = ''
                 window._.forEach(error.data.children, function(value, key) {

@@ -1,19 +1,21 @@
-export let employeProfileCtrl = ['$scope', 'Upload', function($scope, Upload) {
+export let employeProfileCtrl = ['$scope', 'Upload', 'Factory', function($scope, Upload, Factory) {
     $('title').html('Profile')
     $('.datepicker').pickadate()
 
     $scope.sauvegarder = function (dataUrl, picName) {
-        console.log(Upload.dataUrltoBlob(dataUrl, picName))
         // Upload.upload({
-        //     url: Factory.url('/'),
+        //     url: Factory.url(''),
         //     method: 'POST',
         //     data: {
         //         file: Upload.dataUrltoBlob(dataUrl, picName),
-        //         etudiant: $scope
-        //     },
+        //         test: $scope
+        //     }
         // }).then(function(response) {
-        // }, function(response) {
+        //     console.log(response.data)
+        // }, function(error) {
+        //     console.log(error)
         // }, function(evt) {
+        //     console.log(evt)
         // });
     }
 }]

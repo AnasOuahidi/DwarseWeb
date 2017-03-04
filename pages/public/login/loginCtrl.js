@@ -42,17 +42,26 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', '$http', 'USER_ROLES'
         }
     })
     $scope.authentifier = function() {
-        $http.post(Factory.url("/auth/login"), $scope.auth, Factory.jsonHerdersWithoutToken).then((response) => {
+        $http.post(Factory.url("/auth/login"), $scope.auth, Factory.jsonHerders).then((response) => {
             if (response.data.authToken && response.data.authToken.value && response.data.role) {
                 AuthService.login(response.data.authToken.value, response.data.role)
-                if (response.data.role == USER_ROLES.employe) {
-                    return $state.go('employe.index', {}, {reload: true})
-                }
-                if (response.data.role == USER_ROLES.employeur) {
+                if (response.data.employeur && response.data.employeur !== null) {
                     return $state.go('employeur.index', {}, {reload: true})
                 }
-                if (response.data.role == USER_ROLES.commercant) {
+                if (response.data.employe && response.data.employe !== null) {
+                    return $state.go('employe.index', {}, {reload: true})
+                }
+                if (response.data.commercant && response.data.commercant !== null) {
                     return $state.go('commercant.index', {}, {reload: true})
+                }
+                if (response.data.role == USER_ROLES.employe) {
+                    return $state.go('employe.profile', {}, {reload: true})
+                }
+                if (response.data.role == USER_ROLES.employeur) {
+                    return $state.go('employeur.profile', {}, {reload: true})
+                }
+                if (response.data.role == USER_ROLES.commercant) {
+                    return $state.go('commercant.profile', {}, {reload: true})
                 }
             } else {
                 $scope.error = "Problème thechnique!"
