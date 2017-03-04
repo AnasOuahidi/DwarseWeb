@@ -1,4 +1,4 @@
-export let AuthService = ['$http', 'USER_ROLES', '$localStorage', 'Factory', function($http, USER_ROLES, $localStorage, Factory) {
+export let AuthService = ['USER_ROLES', '$localStorage', 'Factory', function(USER_ROLES, $localStorage, Factory) {
     let token
     let role
     let isAuthenticated = false
@@ -11,7 +11,6 @@ export let AuthService = ['$http', 'USER_ROLES', '$localStorage', 'Factory', fun
             isAuthenticated = true
         }
         Factory.token = token
-        Factory.role = role
     }
 
     let login = function(token, role) {
@@ -27,7 +26,6 @@ export let AuthService = ['$http', 'USER_ROLES', '$localStorage', 'Factory', fun
         delete $localStorage.token
         delete $localStorage.role
         Factory.token = null
-        Factory.role = null
     }
 
     let isAuthorized = function(authorizedRoles) {

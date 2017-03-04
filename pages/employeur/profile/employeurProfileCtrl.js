@@ -4,23 +4,15 @@ export let employeurProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', func
 
     $scope.sauvegarder = function(dataUrl, picName) {
         Upload.upload({
-            url: Factory.url('/employeur/profile?token=' + Factory.token),
+            url: Factory.url('/employeur/profile'),
             method: 'POST',
             data: {
                 file: Upload.dataUrltoBlob(dataUrl, picName),
                 profile: $scope.profile
             }
-            // ,
-            // headers: {
-            //     'X-Auth-Token': Factory.token,
-            //     'Content-Type': $scope.picFile.type,
-            //     'Accept': 'application/json'
-            // }
         }).then(function(response) {
             $state.go('employeur.index')
-            console.log(response.data)
         }, function(error) {
-            $state.go('employeur.index')
             console.log(error)
         });
     }
