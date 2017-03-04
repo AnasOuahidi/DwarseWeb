@@ -70,6 +70,13 @@
 .imageLabel {
   margin-top: 12px;
 }
+
 .form-horizontal .control-label{
   text-align: left;
+}
+
+label.required::before {
+  content: '*';
+  margin-right: 4px;
+  color: red;
 }

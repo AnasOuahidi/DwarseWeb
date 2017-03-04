@@ -50,7 +50,7 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
     }
 
     $scope.validationTelephone = (telephone) => {
-        let filtre1 = /^[0-9]{14}$/
+        let filtre1 = /^[0-9]{13}$/
         let filtre2 = /^[0-9]{10}$/
         if (!telephone) {
             return false
@@ -79,8 +79,12 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
         }
     }
 
-    $scope.validationRib = (rib) => {
-        let filter = /^[A-Z0-9]{27}$/
-
+    $scope.validationIban = (iban) => {
+        if(window.iban.isValid('' + iban))
+        {
+            return true
+        }else {
+            return false
+        }
     }
 }]

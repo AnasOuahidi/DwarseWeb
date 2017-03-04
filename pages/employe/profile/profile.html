@@ -3,42 +3,60 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="civilite" class="col-sm-4 control-label">Civilité</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="civilite">
-                        <option selected disabled></option>
-                        <option>Mr.</option>
-                        <option>Mme.</option>
+                <label for="civilite" class="col-sm-4 control-label required">Civilité</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="civilite"
+                            ng-model="profile.civilite" name="civilite"
+                            validator="validationCivilite(profile.civilite)"
+                            invalid-message="'Veuillez choisir une civilité'"
+                            required-message="'Ce champ est obligatoire'"
+                            validate-on="submit" required>>
+                        <option value="" disabled selected>Civilité</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Mme.">Mme.</option>
                     </select>
                 </div>
             </div>
             <br>
             <div class="form-group">
-                <label for="nom" class="col-sm-4 control-label">Nom</label>
+                <label for="nom" class="col-sm-4 control-label required">Nom</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="nom" placeholder="Nom" type="text">
+                    <input class="form-control" id="nom" placeholder="Nom"
+                           type="text" ng-model="profile.nom" name="nom"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
                 </div>
             </div>
             <br>
             <div class="form-group">
-                <label for="prenom" class="col-sm-4 control-label">Prénom</label>
+                <label for="prenom" class="col-sm-4 control-label required">Prenom</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="prenom" placeholder="Prénom" type="text">
+                    <input class="form-control" id="prenom" placeholder="Prenom"
+                           type="text" ng-model="profile.prenom" name="prenom"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
                 </div>
             </div>
             <br>
             <div class="form-group">
-                <label for="dateNaissance" class="col-sm-4 control-label">Date de naissance</label>
+                <label for="dateNaissance" class="col-sm-4 control-label required">Date de naissance</label>
                 <div class="col-sm-8">
                     <input class="form-control datepicker" id="dateNaissance" placeholder="Date de naissance"
-                           type="text">
+                           type="text" name="dateNaissance" ng-model="profile.dateNaissance"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
                 </div>
             </div>
             <br>
             <div class="form-group">
-                <label for="tel" class="col-sm-4 control-label">N° téléphone</label>
+                <label for="tel" class="col-sm-4 control-label required">N° téléphone</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="tel" placeholder="N° Téléphone" type="text">
+                    <input class="form-control" id="tel" placeholder="Telephone"
+                           type="text" ng-model="profile.telephone" name="telephone"
+                           validator="validationTelephone(profile.telephone)"
+                           invalid-message="'Veuillez entrer un numéro de téléphone valide'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
                 </div>
             </div>
             <div class="form-group">
@@ -50,11 +68,13 @@
         </div>
         <div class="col-sm-6">
             <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-1 imageLabel" for="inputFile">Image: </label>
+                <label class="col-sm-2 col-sm-offset-1 imageLabel required" for="inputFile">Image: </label>
                 <div class="col-sm-9">
                     <input type="button" class="btn btn-default btn-block" id="inputFile"
                            value="Veuillez choisir une image" ng-model="picFile"
-                           ngf-select accept="image/*" name="photo">
+                           ngf-select accept="image/*" name="photo"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
                 </div>
             </div>
             <div class="col-sm-6">
