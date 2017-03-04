@@ -70,4 +70,9 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
         }else
             return true
     }
+
+    $scope.validationRib = (rib) => {
+        let filter = /^[A-Z0-9]{27}$/
+
+    }
 }]
