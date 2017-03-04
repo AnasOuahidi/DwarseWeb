@@ -11,7 +11,7 @@
                             invalid-message="'Veuillez choisir une civilité'"
                             required-message="'Ce champ est obligatoire'"
                             validate-on="submit" required>
-                        <option selected disabled></option>
+                        <option value="" disabled selected>Civilité</option>
                         <option value="Mr.">Mr.</option>
                         <option value="Mme.">Mme.</option>
                     </select>
@@ -88,7 +88,9 @@
                 <div class="col-sm-9">
                     <input type="button" class="btn btn-default btn-block" id="inputFile"
                            value="Veuillez choisir une image" ng-model="picFile"
-                           ngf-select accept="image/*" name="photo">
+                           ngf-select accept="image/*" name="photo"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
                 </div>
             </div>
             <div class="col-sm-6">

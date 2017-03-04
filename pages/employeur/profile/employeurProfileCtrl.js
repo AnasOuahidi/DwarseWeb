@@ -11,6 +11,7 @@ export let employeurProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', func
                 profile: $scope.profile
             }
         }).then(function(response) {
+            console.log(response.data)
             $state.go('employeur.index')
         }, function(error) {
             console.log(error)
