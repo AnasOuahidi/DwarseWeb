@@ -78,23 +78,6 @@
                            validate-on="submit" required>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label for="adresse" class="col-sm-4 control-label required">Adresse</label>
-                <div class="col-sm-8">
-                    <textarea class="form-control" id="adresse" placeholder="Adresse"
-                              type="text" ng-model="profile.adresse" name="adresse"
-                              Validator = "validateAlphanumerique(profile.adresse)"
-                              required-message="'Ce champ est obligatoire'"
-                              validate-on="submit" required></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-8 col-sm-offset-4">
-                    <button type="reset" class="btn btn-default">Annuler</button>
-                    <button type="submit" class="btn btn-primary">Valider</button>
-                </div>
-            </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
@@ -120,6 +103,24 @@
                     <img ng-src="{{croppedDataUrl}}"/>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="adresse" class="col-sm-2 control-label required">Adresse</label>
+        <div class="col-sm-9 input-group">
+            <input class="form-control" style="margin-left: 15px" id="adresse" placeholder="Adresse"
+                   type="text" ng-model="profile.adresse" name="adresse"
+                   required-message="'Ce champ est obligatoire'"
+                   validate-on="submit" required>
+            <span class="input-group-addon" style="cursor: pointer" ng-click="showMap()">
+                        <i class="fa fa-map-o" style="margin-left: 15px" aria-hidden="true"></i>
+                    </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <button type="reset" class="btn btn-default">Annuler</button>
+            <button type="submit" class="btn btn-primary">Valider</button>
         </div>
     </div>
 </form>

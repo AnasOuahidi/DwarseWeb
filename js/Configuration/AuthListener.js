@@ -5,7 +5,7 @@ export let authListener = ['$rootScope', '$state', 'Factory', 'AuthService', 'AU
                 event.preventDefault()
                 $state.go('login')
                 $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated)
-                return;
+                return
             }
         }
         if ('data' in next && 'authorizedRoles' in next.data) {
@@ -14,7 +14,7 @@ export let authListener = ['$rootScope', '$state', 'Factory', 'AuthService', 'AU
                 event.preventDefault()
                 $state.go(fromState.name)
                 $rootScope.$broadcast(AUTH_EVENTS.notAuthorized)
-                return;
+                return
             }
         }
     })

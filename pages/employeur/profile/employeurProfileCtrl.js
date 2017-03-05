@@ -33,13 +33,13 @@ export let employeurProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', '$ui
         switch (error.code) {
             case error.PERMISSION_DENIED:
                 window.swal('Geolocation', 'Votre avez refusé la permission!', 'error')
-                break;
+                break
             case error.POSITION_UNAVAILABLE:
                 window.swal('Geolocation', 'Votre position est introuvable!', 'error')
-                break;
+                break
             case error.TIMEOUT:
                 window.swal('Geolocation', 'Erreur interne!', 'error')
-                break;
+                break
         }
     }
 
@@ -105,6 +105,6 @@ export let employeurProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', '$ui
             $state.go('employeur.index')
         }, function(error) {
             console.log(error)
-        });
+        })
     }
 }]
