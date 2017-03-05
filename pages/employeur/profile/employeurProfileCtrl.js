@@ -25,7 +25,10 @@ export let employeurProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', '$ui
             bounds: defaultBounds,
             types: ['address']
         }
-        new google.maps.places.Autocomplete(input, options)
+        let autocomplete = new google.maps.places.Autocomplete(input, options)
+        autocomplete.addListener('place_changed', function() {
+            $scope.profile.adresse = $('#adresse').val()
+        })
     }
 
     function showError(error) {
