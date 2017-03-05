@@ -25,7 +25,7 @@ export let employeurProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', '$ui
             bounds: defaultBounds,
             types: ['address']
         }
-        let autocomplete = new google.maps.places.Autocomplete(input, options)
+        new google.maps.places.Autocomplete(input, options)
     }
 
     function showError(error) {
