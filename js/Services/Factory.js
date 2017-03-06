@@ -19,7 +19,7 @@ export function Factory() {
             if (url === '/auth/authtokens' || url === '/auth/users' || url === '/auth/login') {
                 return `${this.dns}${url}`
             }
-            return `${this.dns}${url}?token=${this.token}&XDEBUG_SESSION_START=19625`
+            return `${this.dns}${url}?token=${this.token}`
         }
     }
     return factory
