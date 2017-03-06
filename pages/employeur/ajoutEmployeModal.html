@@ -1,0 +1,57 @@
+<div class="modal-content">
+    <div class="modal-header bg-info">
+        <i class="ion-flame modal-icon"></i><strong>Ajout employé</strong>
+    </div>
+    <div class="modal-body text-center">
+        <form class="form-horizontal row" name="form"
+              angular-validator-submit="sauvegarder()" novalidate angular-validator>
+            <div class="form-group">
+                <label for="email" class="col-sm-4 control-label required">Email</label>
+                <div class="col-sm-7">
+                    <input class="form-control" id="email" placeholder="Email"
+                           type="text" ng-model="newEmploye.email" name="email"
+                           validator="validationEmail(newEmploye.email)" id="email"
+                           invalid-message="'Cet email n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="login" class="col-sm-4 control-label required">Login</label>
+                <div class="col-sm-7">
+                    <input type="text" name="login" id="login" placeholder="Login"
+                           class="form-control" ng-model="newEmploye.login"
+                           validator="validationLogin(newEmploye.login)"
+                           invalid-message="'Ce champs n\'est pas valide!'"
+                           required-message="'Ce champ est obligatoire'"
+                           validate-on="submit" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="categorie" class="col-sm-4 control-label required">Catégorie</label>
+                <div class="col-sm-7">
+                    <select class="form-control" id="categorie"
+                            ng-model="newEmploye.categorie" name="categorie"
+                            required-message="'Ce champ est obligatoire'"
+                            validator="validationCategorie(newEmploye.categorie)"
+                            invalid-message="'Veuillez choisir une categorie'"
+                            validate-on="submit" required>
+                        <option value="" disabled selected>Catégorie</option>
+                        <option value="Responsable">Responsable</option>
+                        <option value="Cadre">Cadre</option>
+                        <option value="Stagiaire">Stagiaire</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="form-group" style="margin-left: -150px;">
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <button type="reset" ng-click="$dismiss()" class="btn btn-default">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

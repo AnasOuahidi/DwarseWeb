@@ -72,7 +72,7 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
     }
 
     $scope.validationCivilite = (civilite) => {
-        if (civilite === 'Mr.' || civilite === 'Mme.') {
+        if (civilite === 'Mr.' || civilite === 'Mme.' || civilite === 'Mlle.') {
             return true
         } else {
             return false
@@ -80,10 +80,17 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
     }
 
     $scope.validationIban = (iban) => {
-        if(window.iban.isValid('' + iban))
-        {
+        if (window.iban.isValid('' + iban)) {
             return true
-        }else {
+        } else {
+            return false
+        }
+    }
+
+    $scope.validationCategorie = (categorie) => {
+        if (categorie === 'Responsable' || categorie === 'Cadre' || categorie === 'Stagiaire') {
+            return true
+        } else {
             return false
         }
     }

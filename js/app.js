@@ -1,5 +1,6 @@
 require('./Libraries/imports')
 
+import {employeurEmployeCtrl} from '../pages/employeur/employe/employeurEmployeCtrl'
 import {commercantProfileCtrl} from '../pages/commercant/profile/commercantProfileCtrl'
 import {employeurProfileCtrl} from '../pages/employeur/profile/employeurProfileCtrl'
 import {employeProfileCtrl} from '../pages/employe/profile/employeProfileCtrl'
@@ -27,7 +28,8 @@ window.angular.module('dwarse', [
     'angularValidator',
     'ngTouch',
     'ngFileUpload',
-    'ngImgCrop'
+    'ngImgCrop',
+    'ngTable'
 ])
     .config(router)
     .run(authListener)
@@ -48,3 +50,4 @@ window.angular.module('dwarse', [
     .controller('employeProfileCtrl', employeProfileCtrl)
     .controller('employeurProfileCtrl', employeurProfileCtrl)
     .controller('commercantProfileCtrl', commercantProfileCtrl)
+    .controller('employeurEmployeCtrl', employeurEmployeCtrl)
