@@ -7,7 +7,16 @@ export let employeProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', functi
         format: 'Le d mmmm yyyy',
         formatSubmit: 'dd/mm/yyyy'
     })
-
+    $scope.type = 'password'
+    $scope.icone = 'fa-eye-slash'
+    $scope.showPassword = function() {
+        $scope.type = 'text'
+        $scope.icone = 'fa-eye'
+    }
+    $scope.hidePassword = function() {
+        $scope.type = 'password'
+        $scope.icone = 'fa-eye-slash'
+    }
     $scope.sauvegarder = function(dataUrl, picName) {
         $scope.profil = window._.clone($scope.profile)
         delete $scope.profil.dateNaissance

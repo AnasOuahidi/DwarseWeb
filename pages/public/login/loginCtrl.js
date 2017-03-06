@@ -48,20 +48,20 @@ export let loginCtrl = ['$scope', 'AuthService', '$state', '$http', 'USER_ROLES'
                 if (response.data.employeur && response.data.employeur !== null) {
                     return $state.go('employeur.index', {}, {reload: true})
                 }
-                if (response.data.employe && response.data.employe !== null) {
-                    return $state.go('employe.index', {}, {reload: true})
-                }
                 if (response.data.commercant && response.data.commercant !== null) {
                     return $state.go('commercant.index', {}, {reload: true})
                 }
-                if (response.data.role == USER_ROLES.employe) {
-                    return $state.go('employe.profile', {}, {reload: true})
+                if (response.data.employe && response.data.employe !== null && response.data.employe.nom && response.data.employe.nom !== null) {
+                    return $state.go('employe.index', {}, {reload: true})
                 }
                 if (response.data.role == USER_ROLES.employeur) {
                     return $state.go('employeur.profile', {}, {reload: true})
                 }
                 if (response.data.role == USER_ROLES.commercant) {
                     return $state.go('commercant.profile', {}, {reload: true})
+                }
+                if (response.data.role == USER_ROLES.employe) {
+                    return $state.go('employe.profile', {}, {reload: true})
                 }
             } else {
                 $scope.error = "Problème thechnique!"

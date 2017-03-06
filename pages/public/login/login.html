@@ -19,7 +19,7 @@
                     </label>
                     <input type="{{ type }}" ng-model="auth.password" name="password"
                            validator="validationPassword(auth.password)" id="password"
-                           invalid-message="'n\'est pas valide!'"
+                           invalid-message="'Ce champ n\'est pas valide!'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required autocomplete="off"/>
                     <span ng-mousedown="showPassword()" ng-mouseup="hidePassword()"
