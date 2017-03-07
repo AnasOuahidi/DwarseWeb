@@ -1,5 +1,5 @@
 export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory', '$uibModal', function($scope, NgTableParams, $http, Factory, $uibModal) {
-    $('title').html('employe')
+    $('title').html('Liste employés')
 
     $http.get(Factory.url('/employeur/employe'), null, Factory.jsonHerders).then(function(response)
     {
@@ -60,7 +60,6 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
                     ajoutEmployeModal.close()
                     $http.post(Factory.url('/employeur/employe'), $scope.newEmploye, Factory.jsonHerders).then(function(response) {
                         console.log(response.data)
-
                     }, function(error) {
                         console.log(error)
                     })
