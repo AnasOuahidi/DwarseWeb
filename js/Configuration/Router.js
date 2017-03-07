@@ -1,5 +1,11 @@
 export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', function($stateProvider, $urlRouterProvider, USER_ROLES) {
     $stateProvider
+        .state('employe.operationsCarte', {
+            cache: false,
+            url: '/operationsCarte',
+            template: require('./../../pages/employe/operationsCarte/operationsCarte.html'),
+            controller: 'employeOperationsCarteCtrl'
+        })
         .state('employeur.employe', {
             cache: false,
             url: '/employe',

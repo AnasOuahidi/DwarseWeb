@@ -1,19 +1,32 @@
 export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory', '$uibModal', function($scope, NgTableParams, $http, Factory, $uibModal) {
     $('title').html('employe')
 
-    $http.get(Factory.url('/employeur/employe'), null, Factory.jsonHerders).then(function(response) {
+    $http.get(Factory.url('/employeur/employe'), null, Factory.jsonHerders).then(function(response)
+    {
         $scope.tableauEmployes = []
         for (let i = 0; i < response.data.length; i++) {
-            let date = response.data[i].employe.dateNaissance.substring(0, 10)
-            let dateArray = date.split('/')
-            let day = parseInt(dateArray[0])
-            let month = parseInt(dateArray[1])
-            let year = parseInt(dateArray[2])
-            let momentDate = window.moment()
-            momentDate.set('year', year)
-            momentDate.set('month', month - 1)
-            momentDate.set('date', day)
-            let age = window.moment().diff(momentDate, 'years')
+            window._.forEach(response.data[i].employe, function(value, key) {
+                if (value == null) {
+                    if (key !== 'photo') {
+                        response.data[i].employe[key] = '-'
+                    }
+                }
+            })
+            let age
+            if (response.data[i].employe.dateNaissance == '-') {
+                let date = response.data[i].employe.dateNaissance.substring(0, 10)
+                let dateArray = date.split('/')
+                let day = parseInt(dateArray[0])
+                let month = parseInt(dateArray[1])
+                let year = parseInt(dateArray[2])
+                let momentDate = window.moment()
+                momentDate.set('year', year)
+                momentDate.set('month', month - 1)
+                momentDate.set('date', day)
+                age = window.moment().diff(momentDate, 'years')
+            } else {
+                age = '-'
+            }
             let employe = {
                 id: response.data[i].employe.id,
                 email: response.data[i].email,
@@ -45,7 +58,7 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
             controller: ['$scope', '$http', 'Factory', function($scope, $http, Factory) {
                 $scope.sauvegarder = function() {
                     ajoutEmployeModal.close()
-                    $http.post(Factory.url('/employeur/employe'), $scope.newEmploye,  Factory.jsonHerders).then(function(response) {
+                    $http.post(Factory.url('/employeur/employe'), $scope.newEmploye, Factory.jsonHerders).then(function(response) {
                         console.log(response.data)
 
                     }, function(error) {
