@@ -95,6 +95,13 @@ export let commercantProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', '$u
         })
     }
 
+    // function initialize() {
+    //     var input = document.getElementById('searchTextField');
+    //     var autocomplete = new google.maps.places.Autocomplete(input);
+    // }
+    //
+    // google.maps.event.addDomListener(window, 'load', initialize);
+
     $scope.sauvegarder = function(dataUrl, picName) {
         Upload.upload({
             url: Factory.url('/commercant/profile'),

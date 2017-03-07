@@ -95,4 +95,5 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
             return false
         }
     }
+
 }]

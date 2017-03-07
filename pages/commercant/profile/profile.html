@@ -71,11 +71,29 @@
                 <label for="tel" class="col-sm-4 control-label required">N° téléphone</label>
                 <div class="col-sm-8">
                     <input class="form-control" id="tel" placeholder="Telephone"
-                           type="text" ng-model="profile.numTel" name="telephone"
-                           validator="validationTelephone(profile.numTel)"
+                           type="text" ng-model="profile.telephone" name="telephone"
+                           validator="validationTelephone(profile.telephone)"
                            invalid-message="'Veuillez entrer un numéro de téléphone valide'"
                            required-message="'Ce champ est obligatoire'"
                            validate-on="submit" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="adresse" class="col-sm-4 control-label required">Adresse</label>
+                <div class="col-sm-8">
+                    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_cGa8W7FCpC1WR8eNYEP98bCJ8AXqi_I&libraries=places"></script>
+                    <textarea class="form-control" id="adresse" placeholder="Adresse"
+                              type="text" ng-model="profile.adresse" name="adresse"
+                              Validator = "validateAlphanumerique(profile.adresse)"
+                              required-message="'Ce champ est obligatoire'"
+                              validate-on="submit" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-sm-offset-4">
+                    <button type="reset" class="btn btn-default">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Valider</button>
                 </div>
             </div>
         </div>
@@ -103,24 +121,6 @@
                     <img ng-src="{{croppedDataUrl}}"/>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="adresse" class="col-sm-2 control-label required">Adresse</label>
-        <div class="col-sm-9 input-group">
-            <input class="form-control" style="margin-left: 15px" id="adresse" placeholder="Adresse"
-                   type="text" ng-model="profile.adresse" name="adresse"
-                   required-message="'Ce champ est obligatoire'"
-                   validate-on="submit" required>
-            <span class="input-group-addon" style="cursor: pointer" ng-click="showMap()">
-                <i class="fa fa-map-o" style="margin-left: 15px" aria-hidden="true"></i>
-            </span>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-10 col-sm-offset-2">
-            <button type="reset" class="btn btn-default">Annuler</button>
-            <button type="submit" class="btn btn-primary">Valider</button>
         </div>
     </div>
 </form>
