@@ -11,6 +11,7 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
     $scope.$on(AUTH_EVENTS.notAuthenticated, (event) => {
         AuthService.logout()
         window.sweetAlert("Session Perdu !", "Vous n'etes plus connecté !", "warning")
+        $state.go('login', {}, {reload: true})
     })
 
     $scope.logout = () => {

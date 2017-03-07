@@ -1,13 +1,18 @@
 export let employeProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', function($scope, Factory, Upload, $state) {
     $('title').html('Profile')
     $('body').removeClass('bg')
-    $('.datepicker').pickadate({
+    let $input = $('.datepicker').pickadate({
         selectYears: true,
         selectMonths: true,
         min: new Date(1960, 0, 1),
         format: 'Le d mmmm yyyy',
         formatSubmit: 'yyyy-mm-dd'
     })
+    var datearray = window.moment().format('DD/MM/YYYY').split('/')
+    var day = datearray[0]
+    var month = datearray[1] - 1
+    var picker = $input.pickadate('picker')
+    picker.set('select', new Date(1990, month, day))
     $scope.type = 'password'
     $scope.icone = 'fa-eye-slash'
     $scope.showPassword = function() {
