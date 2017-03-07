@@ -4,8 +4,9 @@ export let employeProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', functi
     $('.datepicker').pickadate({
         selectYears: true,
         selectMonths: true,
+        min: new Date(1960, 0, 1),
         format: 'Le d mmmm yyyy',
-        formatSubmit: 'dd/mm/yyyy'
+        formatSubmit: 'yyyy-mm-dd'
     })
     $scope.type = 'password'
     $scope.icone = 'fa-eye-slash'

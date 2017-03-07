@@ -2,7 +2,7 @@ export function Factory() {
     let factory = {
         token: null,
         // dns: 'http://localhost:8000',
-        dns: 'https://dwarse.herokuapp.com',
+        dns: 'http://dwarse.dev',
         jsonHerders: {
             headers: {
                 'Accept': 'application/json',
@@ -19,7 +19,7 @@ export function Factory() {
             if (url === '/auth/authtokens' || url === '/auth/users' || url === '/auth/login') {
                 return `${this.dns}${url}`
             }
-            return `${this.dns}${url}?token=${this.token}`
+            return `${this.dns}${url}?token=${this.token}&XDEBUG_SESSION_START=13536`
         }
     }
     return factory
