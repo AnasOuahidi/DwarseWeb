@@ -1,5 +1,6 @@
 require('./Libraries/imports')
 
+import {commercantHistoriqueCtrl} from '../pages/commercant/historique/commercantHistoriqueCtrl'
 import {employeOperationsCarteCtrl} from '../pages/employe/operationsCarte/employeOperationsCarteCtrl'
 import {employeurEmployeCtrl} from '../pages/employeur/employe/employeurEmployeCtrl'
 import {commercantProfileCtrl} from '../pages/commercant/profile/commercantProfileCtrl'
@@ -53,3 +54,4 @@ window.angular.module('dwarse', [
     .controller('commercantProfileCtrl', commercantProfileCtrl)
     .controller('employeurEmployeCtrl', employeurEmployeCtrl)
     .controller('employeOperationsCarteCtrl', employeOperationsCarteCtrl)
+    .controller('commercantHistoriqueCtrl', commercantHistoriqueCtrl)

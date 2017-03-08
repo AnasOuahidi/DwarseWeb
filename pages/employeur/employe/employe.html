@@ -10,7 +10,7 @@
         <td data-title="'Téléphone'" filter="{numTel: 'text'}" sortable="'numTel'">{{employe.numTel}}</td>
         <td data-title="'Categorie'" filter="{categorie: 'text'}" sortable="'categorie'">{{employe.categorie}}</td>
         <td data-title="'Etat'" filter="{opoosed: 'text'}" sortable="'opoosed'">{{employe.opoosed}}</td>
-        <td data-title="'Opposition'">
+        <td data-title="'Opposition'" ng-click="opposer()">
             <center>
                 <div style="cursor: pointer;" ng-click="opposer(employe.id)">
                     <i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i>
@@ -19,3 +19,4 @@
         </td>
     </tr>
 </table>
+

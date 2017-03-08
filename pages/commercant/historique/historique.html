@@ -4,7 +4,6 @@
         <h1>{{solde}}</h1>
     </div>
 </div>
-<hr>
 <div class="container">
     <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat=" transaction in $data">
@@ -15,21 +14,5 @@
             <td data-title="'Montant de la carte'">{{transaction.montantCarte}}</td>
         </tr>
     </table>
-
 </div>
-
-<div class="col-sm-5">
-    <div class="card w-75">
-        <h3 class="card-title">Opposition carte</h3>
-        <button type="button" class="btn btn-primary" ng-click="opposition()">Opposer carte</button>
-    </div>
-</div>
-
-
-
-
-
-
-
-
 

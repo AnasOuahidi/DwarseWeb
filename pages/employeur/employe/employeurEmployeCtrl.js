@@ -45,9 +45,6 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
         console.log(error)
     })
 
-    $scope.opposer = function(id) {
-        console.log(id)
-    }
 
     $scope.addEmploye = function() {
         let ajoutEmployeModal = $uibModal.open({
@@ -65,6 +62,26 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
                     })
                 }
             }]
+        })
+    }
+    $scope.opposer = (id) => {
+        window.swal({
+            title: "Vous êtes sur de vouloir opposer votre carte?",
+            text: "",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Confirmer"
+        }, function() {
+            $http.post(Factory.url('/employeur/opposition'), {id: id}, Factory.jsonHerders).then((response) => {
+                swal(
+                    response.data.Success,
+                    'Carte opposée.',
+                    'success'
+                )
+            }, (error) => {
+                console.log(error)
+            })
         })
     }
 }]
