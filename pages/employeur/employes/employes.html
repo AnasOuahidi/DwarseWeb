@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-danger" ng-click="enployesAdd()">Ajouter un employe</button>
+<br><br>
+<table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+    <tr ng-repeat="employe in $data">
+       <td title="'Photo'" filter="{}" sortable="'Photo'">
+            <img class="img-circle" height="45px" width="45px" ng-src="{{employe.photo}}">
+        </td>
+        <td title="'Nom'" filter="{nom : 'text'}" sortable="'nom'" align="center"> {{employe.nom}}</td>
+        <td title="'Prenom'" filter="{prenom : 'text'}" sortable="'prenom'" align="center"> {{employe.prenom}}</td>
+        <td title="'Email'" filter="{email : 'text'}" sortable="'email'" align="center"> {{employe.email}}</td>
+        <td title="'Age'" filter="{age : 'number'}" sortable="'age'" align="center"> {{employe.age}}</td>
+        <td title="'Telephone'" filter="{telephone : 'text'}" sortable="'telephone'" align="center"> {{employe.telephone}}</td>
+        <td title="'Categorie'" filter="{categorie : 'text'}" sortable="'categorie'" align="center"> {{employe.categorie}}</td>
+        <td title="'Etat'" filter="{etat : 'text'}" sortable="'etat'" align="center"> {{employe.etat}}</td>
+        <td title="'Opposition'" align="center">
+            <center> <i class="fa fa-ban opposedIcon fa-2x" ng-if="!employe.etatIcon"></i> </center>
+        </td>
+    </tr>
+</table>
+
