@@ -13,7 +13,7 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
     }
     $http.get(Factory.url('/employeur/employe'), null, Factory.jsonHerders).then(function(response) {
         let employes = response.data
-        let listeEmployes = []
+        $scope.listeEmployes = []
         for (let i = 0; i < employes.length; i++) {
             let datenaissance = employes[i].employe.dateNaissance
             let employe = {
@@ -28,26 +28,40 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
                 etat: employes[i].employe.carte.opposed ? 'Opposée' : 'Activée',
                 etatIcon: employes[i].employe.carte.opposed
             }
-            listeEmployes.push(employe)
+          $scope.listeEmployes.push(employe)
         }
-        $scope.tableParams = new NgTableParams({count:2}, {
+        $scope.tableParams = new NgTableParams({count:3}, {
             counts: [],
-            dataset: listeEmployes
+            dataset: $scope.listeEmployes
         })
+      $('table').next().addClass('text-center')
     }, function(error) {
         console.log(error);
-    });
-
-
+    })
     $scope.addEmploye = function() {
         let ajoutEmployeModal = $uibModal.open({
             animation: true,
             template: require('./../ajoutEmployeModal.html'),
             scope: $scope,
-            controller: ['$scope', '$http', 'Factory', function($scope, $http, Factory) { //Controller de la fenêtre. Il doit prend en paramètre tous les élèments du "resolve".
+            controller: ['$scope', '$http', 'Factory', function($scope, $http, Factory) {
                 $scope.valider = function() {
                     ajoutEmployeModal.close()
                     $http.post(Factory.url('/employeur/employe'), $scope.newEmploye, Factory.jsonHerders).then(function(response) {
+                      let employe = {
+                        id: response.data.employe.id,
+                        photo: 'https://s3.amazonaws.com/dwarse/assets/img/user.png',
+                        nom: '-',
+                        prenom: '-',
+                        email: response.data.email,
+                        age: '-',
+                        telephone: '-',
+                        categorie: response.data.employe.carte.categorie.libelle,
+                        etat: 'Activée',
+                        etatIcon: false
+                      }
+                      $scope.listeEmployes.push(employe)
+                      $scope.tableParams.reload()
+                      $scope.tableParams.total($scope.listeEmployes.length)
                     }, function(error) {
                         console.log(error)
                     })
@@ -74,10 +88,17 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
             function(isConfirm) {
                 if (isConfirm) {
                     $http.post(Factory.url('/employeur/opposition'), {id: id}, Factory.jsonHerders).then(function(response){
+                      for (let i = 0; i < $scope.tableParams.data.length; i++) {
+                        if ($scope.tableParams.data[i].id == id) {
+                          $scope.tableParams.data[i].etat = 'Opposée'
+                          $scope.tableParams.data[i].etatIcon = true
+                        }
+                      }
                         swal(
                             'Opposée!',
                             'Votre carte est Opposée',
                             'success');
+
                     }, function(error) {
                         console.log(error)
                     })
