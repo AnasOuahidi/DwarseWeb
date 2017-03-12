@@ -91,10 +91,17 @@ label.required::before {
 
 .opposedIcon{
   color: #d62c1a;
+  cursor: pointer;
 }
 
-.paginationStyle{
-  position: absolute;
-  text-align :  center;
-  color :  #d62c1a;
+.modalStyle{
+  background-color :  #28415b;
+  font-weight : bold;
+}
+.modal-footer .btn{
+  width: 100px;
+  left: 10px;
+}
+.modal-footer {
+  margin-right: 15px;
 }
