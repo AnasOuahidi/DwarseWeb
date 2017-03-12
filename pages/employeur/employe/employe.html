@@ -1,19 +1,21 @@
-<button type="button" class="btn btn-danger" ng-click="addEmploye()">Ajouter un employe</button>
-<br><br>
+<button class="btn btn-default" ng-click="addEmploye()">Ajout empolyé</button><br><br>
 <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
     <tr ng-repeat="employe in $data">
-       <td title="'Photo'" filter="{}" sortable="'Photo'">
-            <img class="img-circle" height="45px" width="45px" ng-src="{{employe.photo}}">
+        <td data-title="'Photo'"><img class="img-circle" height="35px" width="35px" ng-src="{{employe.photo}}" alt="">
         </td>
-        <td title="'Nom'" filter="{nom : 'text'}" sortable="'nom'" align="center"> {{employe.nom}}</td>
-        <td title="'Prenom'" filter="{prenom : 'text'}" sortable="'prenom'" align="center"> {{employe.prenom}}</td>
-        <td title="'Email'" filter="{email : 'text'}" sortable="'email'" align="center"> {{employe.email}}</td>
-        <td title="'Age'" filter="{age : 'number'}" sortable="'age'" align="center"> {{employe.age}}</td>
-        <td title="'Telephone'" filter="{telephone : 'text'}" sortable="'telephone'" align="center"> {{employe.telephone}}</td>
-        <td title="'Categorie'" filter="{categorie : 'text'}" sortable="'categorie'" align="center"> {{employe.categorie}}</td>
-        <td title="'Etat'" filter="{etat : 'text'}" sortable="'etat'" align="center"> {{employe.etat}}</td>
-        <td title="'Opposition'" align="center">
-            <center> <i class="fa fa-ban opposedIcon fa-2x" ng-if="!employe.etatIcon" ng-click="opposer(employe.id)"></i> </center>
+        <td data-title="'Nom'" filter="{nom: 'text'}" sortable="'nom'">{{employe.nom}}</td>
+        <td data-title="'Prenom'" filter="{prenom: 'text'}" sortable="'prenom'">{{employe.prenom}}</td>
+        <td data-title="'Email'" filter="{email: 'text'}" sortable="'email'">{{employe.email}}</td>
+        <td data-title="'Age'" filter="{age: 'number'}" sortable="'age'">{{employe.age}}</td>
+        <td data-title="'Téléphone'" filter="{numTel: 'text'}" sortable="'numTel'">{{employe.numTel}}</td>
+        <td data-title="'Categorie'" filter="{categorie: 'text'}" sortable="'categorie'">{{employe.categorie}}</td>
+        <td data-title="'Etat'" filter="{opoosed: 'text'}" sortable="'opoosed'">{{employe.opoosed}}</td>
+        <td data-title="'Opposition'" ng-click="opposer()">
+            <center>
+                <div style="cursor: pointer;" ng-click="opposer(employe.id)">
+                    <i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i>
+                </div>
+            </center>
         </td>
     </tr>
 </table>
