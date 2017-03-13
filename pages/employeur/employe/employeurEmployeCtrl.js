@@ -30,7 +30,7 @@ export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory'
             }
           $scope.listeEmployes.push(employe)
         }
-        $scope.tableParams = new NgTableParams({count:3}, {
+        $scope.tableParams = new NgTableParams({count:10}, {
             counts: [],
             dataset: $scope.listeEmployes
         })

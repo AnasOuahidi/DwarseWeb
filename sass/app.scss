@@ -7,6 +7,7 @@
 @import "lib/inscriptionTemplate/styles";
 @import "lib/sweetalert/sweetalert.css";
 @import "lib/ng-crop-img/style";
+@import "lib/footerCss/stylefooter.css";
 
 .bg {
   background: url('./../img/bg.jpg') no-repeat center center fixed;
@@ -89,9 +90,15 @@ label.required::before {
   color: red;
 }
 
-.opposedIcon{
+.opposedIconEnabled{
   color: #d62c1a;
   cursor: pointer;
+}
+
+.opposedIconDisabled{
+  color: #6d6b6b;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .modalStyle{
@@ -104,4 +111,35 @@ label.required::before {
 }
 .modal-footer {
   margin-right: 15px;
+}
+.carousel-inner,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+      width: 1400px;
+      height: 700px;
+}
+.removeMargin{
+  margin-top: -63px;
+  margin-left: -150px;
+}
+
+#CenterUlCarousel
+{
+  text-align:center;/*centre les inline qu'il contient*/
+}
+.jumbotron{
+      width: 1400px;
+      height: 300px;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;;
+    right:50%; 
+    z-index: 15;
+    width: 60%;
+    margin-left: -20%;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
 }

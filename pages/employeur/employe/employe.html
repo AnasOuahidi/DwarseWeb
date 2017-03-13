@@ -11,9 +11,9 @@
         <td title="'Age'" filter="{age : 'number'}" sortable="'age'" align="center"> {{employe.age}}</td>
         <td title="'Telephone'" filter="{telephone : 'text'}" sortable="'telephone'" align="center"> {{employe.telephone}}</td>
         <td title="'Categorie'" filter="{categorie : 'text'}" sortable="'categorie'" align="center"> {{employe.categorie}}</td>
-        <td title="'Etat'" filter="{etat : 'text'}" sortable="'etat'" align="center"> {{employe.etat}}</td>
+        <td title="'Etat'" filter="{etat : 'text'}" sortable="'etat'" align="center" > {{employe.etat}}</td>
         <td title="'Opposition'" align="center">
-            <center> <i class="fa fa-ban opposedIcon fa-2x" ng-if="!employe.etatIcon" ng-click="opposer(employe.id)"></i> </center>
+<center> <i class="fa fa-ban fa-2x" ng-class="{opposedIconEnabled : !employe.etatIcon , opposedIconDisabled : employe.etatIcon }" ng-click="opposer(employe.id)"></i> </center>
         </td>
     </tr>
 </table>
