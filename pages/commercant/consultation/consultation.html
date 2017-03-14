@@ -1,1 +1,27 @@
-<h1>consultation is created!</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 solde">
+            <span style="font-size: 40px">  Votre Solde est :</span><br>
+            <span style="font-size: 65px"><strong>   {{solde}} €</strong></span>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4 opposition">
+            <span style="font-size: 40px">A venir :</span><br>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container">
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat=" transaction in $data">
+            <td data-title="'Identifiant de l\'employe'" filter="{id : 'number'}" sortable="'nom'" align="center">{{transaction.id}}</td>
+            <td data-title="'Date de la transaction'" filter="{date : 'text'}" sortable="'date'"  align="center">{{transaction.date}}</td>
+            <td data-title="'Heure'" filter="{time : 'text'}" sortable="'time'" align="center">{{transaction.time}}</td>
+            <td title="'Nom de l\'employeur'" filter="{libelleEmployeur : 'text'}" sortable="'libelleEmployeur'" align="center"> {{transaction.libelleEmployeur}}</td>
+            <td title="'montant'" filter="{montant : 'number'}" sortable="'montant'" align="center">{{transaction.montant}}</td>
+        </tr>
+    </table>
+</div>
+
+
+
+
