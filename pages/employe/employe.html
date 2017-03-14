@@ -1,19 +1,16 @@
 <nav class="navbar navbar-ct-azzure navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand navbar-brand-logo" href>
+            <a class="navbar-brand navbar-brand-logo">
                 <div>
-                    <img ng-if="isMobile" alt="Dwarse" height="34px" style="margin-top: -18px"
-                         src="../../img/favicon.png">
-                    <img ng-if="!isMobile" alt="Dwarse" height="64px" style="margin-top: -5px"
-                         src="../../img/favicon.png">
+                    <img ng-if="isMobile" alt="Dwarse" height="34px" style="margin-top: -18px" src="../../img/favicon.png">
+                    <img ng-if="!isMobile" alt="Dwarse" height="64px" style="margin-top: -5px" src="../../img/favicon.png">
                 </div>
             </a>
         </div>
@@ -21,22 +18,22 @@
             <ul class="nav navbar-nav navbar-left">
                 <li>
                     <a ui-sref="employe.index">
-                        <i class="pe-7s-home"></i>
-                        <p>Home</p>
+                        <i class="fa fa-home"></i>
+                        <strong><p>Accueil</p></strong>
                     </a>
                 </li>
                 <li>
-                    <a ui-sref="employe.operationsCarte">
-                        <i class="pe-7s-cart"></i>
-                        <p>Achat</p>
+                    <a ui-sref="employe.consultation">
+                <i class="fa fa-credit-card "></i>
+                        <strong><p>Consultation</p></strong>
                     </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href ng-click="logout()">
-                        <i class="pe-7s-power"></i>
-                        <p>Se deconnecter</p>
+                    <a ng-click="logout()">
+                        <i class="fa fa-power-off"></i>
+                        <strong><p>Déconnexion</p></strong>
                     </a>
                 </li>
             </ul>

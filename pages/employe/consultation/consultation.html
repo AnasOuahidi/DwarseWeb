@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 solde">
+    	<span style="font-size: 40px">  Votre Solde est :</span><br>
+    	<span style="font-size: 65px"><strong>   {{solde}} €</strong></span>
+    </div>
+    <div class="col-sm-4 col-sm-offset-4 opposition">
+    	<span style="font-size: 40px">Opposer la Carte :</span><br>
+<i class="fa fa-ban fa-5x right" style="margin-left:200px;" ng-class="{opposedIconEnabled : active , opposedIconDisabled : !active }" ng-click="opposer()"></i>
+    </div>
+  </div>
+</div>
+<br><br>
+<table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+    <tr align="center" ng-repeat="transaction in $data">
+
+        <td title="'Nom'" filter="{nom : 'text'}" sortable="'nom'" align="center"> {{transaction.nom}}</td>
+
+        <td title="'Prenom'" filter="{prenom : 'text'}" sortable="'prenom'" align="center"> {{transaction.prenom}}</td>
+
+        <td title="'Date de la transaction'" filter="{date : 'text'}" sortable="'date'"  align="center">{{transaction.date}}</td>
+
+        <td title="'Heure'" filter="{time : 'text'}" sortable="'time'" align="center">{{transaction.time}}</td>
+
+        <td title="'Restaurant'" filter="{restaurant : 'text'}" sortable="'restaurant'" align="center"> {{transaction.restaurant}}</td>
+
+        <td title="'Montant'" filter="{montant : 'number'}" sortable="'montant'" align="center">{{transaction.montant}}</td>   
+
+    </tr>
+</table>
