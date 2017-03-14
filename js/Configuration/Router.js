@@ -1,28 +1,22 @@
 export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', function($stateProvider, $urlRouterProvider, USER_ROLES) {
     $stateProvider
-        .state('commercant.historique', {
+
+// Rotes Employeur
+
+        .state('employeur.index', {
             cache: false,
-            url: '/historique',
-            template: require('./../../pages/commercant/historique/historique.html'),
-            controller: 'commercantHistoriqueCtrl'
+            url: '/',
+            template: require('./../../pages/employeur/index/index.html'),
+            controller: 'employeurIndexCtrl'
         })
-        .state('employe.operationsCarte', {
+        .state('employeur', {
             cache: false,
-            url: '/operationsCarte',
-            template: require('./../../pages/employe/operationsCarte/operationsCarte.html'),
-            controller: 'employeOperationsCarteCtrl'
-        })
-        .state('employeur.employe', {
-            cache: false,
-            url: '/employe',
-            template: require('./../../pages/employeur/employe/employe.html'),
-            controller: 'employeurEmployeCtrl'
-        })
-        .state('commercant.profile', {
-            cache: false,
-            url: '/profile',
-            template: require('./../../pages/commercant/profile/profile.html'),
-            controller: 'commercantProfileCtrl'
+            abstract: true,
+            url: '/employeur',
+            template: require('./../../pages/employeur/employeur.html'),
+            data: {
+                authorizedRoles: [USER_ROLES.employeur]
+            }
         })
         .state('employeur.profile', {
             cache: false,
@@ -30,12 +24,15 @@ export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', funct
             template: require('./../../pages/employeur/profile/profile.html'),
             controller: 'employeurProfileCtrl'
         })
-        .state('employe.profile', {
+        .state('employeur.employe', {
             cache: false,
-            url: '/profile',
-            template: require('./../../pages/employe/profile/profile.html'),
-            controller: 'employeProfileCtrl'
+            url: '/employe',
+            template: require('./../../pages/employeur/employe/employe.html'),
+            controller: 'employeurEmployeCtrl'
         })
+
+// Routes commercant
+
         .state('commercant.index', {
             cache: false,
             url: '/',
@@ -51,20 +48,33 @@ export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', funct
                 authorizedRoles: [USER_ROLES.commercant]
             }
         })
-        .state('employeur.index', {
+        .state('commercant.consultation', {
             cache: false,
-            url: '/',
-            template: require('./../../pages/employeur/index/index.html'),
-            controller: 'employeurIndexCtrl'
+            url: '/consultation',
+            template: require('./../../pages/commercant/consultation/consultation.html'),
+            controller: 'commercantConsultationCtrl'
         })
-        .state('employeur', {
+        .state('commercant.historique', {
             cache: false,
-            abstract: true,
-            url: '/employeur',
-            template: require('./../../pages/employeur/employeur.html'),
-            data: {
-                authorizedRoles: [USER_ROLES.employeur]
-            }
+            url: '/historique',
+            template: require('./../../pages/commercant/historique/historique.html'),
+            controller: 'commercantHistoriqueCtrl'
+        })
+
+        .state('commercant.profile', {
+            cache: false,
+            url: '/profile',
+            template: require('./../../pages/commercant/profile/profile.html'),
+            controller: 'commercantProfileCtrl'
+        })
+
+//Routes employe 
+       
+        .state('employe.consultation', {
+            cache: false,
+            url: '/consultation',
+            template: require('./../../pages/employe/consultation/consultation.html'),
+            controller: 'employeConsultationCtrl'
         })
         .state('employe.index', {
             cache: false,
@@ -81,6 +91,15 @@ export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', funct
                 authorizedRoles: [USER_ROLES.employe]
             }
         })
+        .state('employe.profile', {
+            cache: false,
+            url: '/profile',
+            template: require('./../../pages/employe/profile/profile.html'),
+            controller: 'employeProfileCtrl'
+        })
+
+// Publique
+
         .state('inscription', {
             cache: false,
             url: '/inscription',

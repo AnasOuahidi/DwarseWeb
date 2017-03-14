@@ -10,7 +10,7 @@
             <a class="navbar-brand navbar-brand-logo" href>
                 <div>
                     <img ng-if="isMobile" alt="Dwarse" height="34px" style="margin-top: -18px" src="../../img/favicon.png">
-                    <img ng-if="!isMobile" alt="Dwarse" height="64px" style="margin-top: -10px" src="../../img/favicon.png">
+                    <img ng-if="!isMobile" alt="Dwarse" height="64px" style="margin-top: -7px" src="../../img/favicon.png">
                 </div>
             </a>
         </div>
@@ -18,22 +18,22 @@
             <ul class="nav navbar-nav navbar-left">
                 <li>
                     <a ui-sref="employeur.index">
-                        <i class="pe-7s-home"></i>
-                        <p>Accueil</p>
+                        <i class="fa fa-home"></i>
+                        <strong><p>Accueil</p></strong>
                     </a>
                 </li>
                 <li>
                     <a ui-sref="employeur.employe">
-                        <i class="pe-7s-id"></i>
-                        <p>Liste des Employés</p>
+                        <i class="fa fa-id-card-o"></i>
+                        <strong><p>Liste des Employés</p></strong>
                     </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href ng-click="logout()">
-                        <i class="pe-7s-power"></i>
-                        <p>Se déconnecter</p>
+                        <i class="fa fa-power-off"></i>
+                        <strong><p>Se déconnecter</p></strong>
                     </a>
                 </li>
             </ul>

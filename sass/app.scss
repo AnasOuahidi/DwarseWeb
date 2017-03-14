@@ -8,6 +8,7 @@
 @import "lib/sweetalert/sweetalert.css";
 @import "lib/ng-crop-img/style";
 @import "lib/footerCss/stylefooter.css";
+@import url("https://fonts.googleapis.com/css?family=Rambla");
 
 .bg {
   background: url('./../img/bg.jpg') no-repeat center center fixed;
@@ -142,4 +143,19 @@ label.required::before {
     padding-left: 0;
     list-style: none;
     text-align: center;
+}
+thead:first-child > tr:first-child > th
+{
+  text-align: center;
+}
+
+.solde , .opposition
+{
+font-family: 'Rambla', sans-serif;
+font-style:  italic;
+}
+
+
+.navbar-nav > li > a [class^="fa"] {
+    font-size: 35px !important;
 }
