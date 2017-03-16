@@ -7,4 +7,3 @@ git remote add origin https://dwarse:dwarse123@github.com/dwarse/dwarse.github.i
 git push -u origin master --force
 cd ../
 git add .
-xdg-open https://dwarse.github.io/
