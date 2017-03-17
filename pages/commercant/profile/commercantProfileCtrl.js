@@ -49,7 +49,7 @@ export let commercantProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', '$u
     $scope.showMap = function() {
         var mapModal = $uibModal.open({
             animation: true,
-            template: `<div style="height: ${Math.trunc($(document).height() * 0.9)}px; width: ${Math.trunc($(document).width() * 0.9)}px; margin-left: -45%" id="map"></div>`,
+            template: `<div style="height: ${Math.trunc($(document).height() * 0.9)}px; width: ${Math.trunc($(document).width() * 0.9)}px; margin-left: -33%" id="map"></div>`,
             size: 'lg'
         })
         mapModal.rendered.then(function() {
