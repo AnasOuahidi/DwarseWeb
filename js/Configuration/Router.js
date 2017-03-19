@@ -54,13 +54,6 @@ export let router = ['$stateProvider', '$urlRouterProvider', 'USER_ROLES', funct
             template: require('./../../pages/commercant/consultation/consultation.html'),
             controller: 'commercantConsultationCtrl'
         })
-        .state('commercant.historique', {
-            cache: false,
-            url: '/historique',
-            template: require('./../../pages/commercant/historique/historique.html'),
-            controller: 'commercantHistoriqueCtrl'
-        })
-
         .state('commercant.profile', {
             cache: false,
             url: '/profile',

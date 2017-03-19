@@ -31,7 +31,7 @@ export let appCtrl = ['$scope', '$state', '$uibModal', 'AuthService', 'Factory',
         return filter.test(textString)
     }
 
-    $scope.validationLogin = (login) => {   //  ===  validationLogin = function(login) {}
+    $scope.validationLogin = (login) => {   
         if (login && $scope.validationEmail(login)) {
             return true
         }

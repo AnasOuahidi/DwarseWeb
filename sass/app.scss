@@ -157,5 +157,20 @@ font-style:  italic;
 
 
 .navbar-nav > li > a [class^="fa"] {
-    font-size: 35px !important;
+  font-size: 35px !important;
+}
+
+.aVenir {
+  color: green;
+  font-weight : bold; 
+
+}
+
+.termine {
+  color: red;
+  font-weight : bold;
+}
+
+.ng-table th.sortable .sort-indicator {
+  cursor: pointer;
 }

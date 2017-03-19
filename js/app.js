@@ -2,7 +2,6 @@ require('./Libraries/imports')
 
 import {commercantConsultationCtrl} from '../pages/commercant/consultation/commercantConsultationCtrl'
 import {employeConsultationCtrl} from '../pages/employe/consultation/employeConsultationCtrl'
-import {commercantHistoriqueCtrl} from '../pages/commercant/historique/commercantHistoriqueCtrl'
 import {employeurEmployeCtrl} from '../pages/employeur/employe/employeurEmployeCtrl'
 import {commercantProfileCtrl} from '../pages/commercant/profile/commercantProfileCtrl'
 import {employeurProfileCtrl} from '../pages/employeur/profile/employeurProfileCtrl'
@@ -34,6 +33,7 @@ window.angular.module('dwarse', [
     'ngImgCrop',
     'ngTable'
 ])
+
     .config(router)
     .run(authListener)
     .constant('AUTH_EVENTS', AUTH_EVENTS)
@@ -54,6 +54,5 @@ window.angular.module('dwarse', [
     .controller('employeurProfileCtrl', employeurProfileCtrl)
     .controller('commercantProfileCtrl', commercantProfileCtrl)
     .controller('employeurEmployeCtrl', employeurEmployeCtrl)
-    .controller('commercantHistoriqueCtrl', commercantHistoriqueCtrl)
     .controller('employeConsultationCtrl', employeConsultationCtrl)
     .controller('commercantConsultationCtrl', commercantConsultationCtrl)

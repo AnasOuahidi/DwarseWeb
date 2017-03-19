@@ -7,8 +7,7 @@ export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTablePara
         $scope.listeTransactions = []
 
         for (let i = 0; i < transactions.length; i++) {
-        	$scope.active = !transactions[i].carte.opposed
-        	let dateTime = transactions[i].date
+            let dateTime = transactions[i].date
             let transaction = {
 				prenom : transactions[i].carte.employe.prenom,
 				nom : transactions[i].carte.employe.nom,
@@ -19,21 +18,22 @@ export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTablePara
             }
           $scope.listeTransactions.push(transaction)
         }
-        $scope.tableParams = new NgTableParams({count:5}, {
+        $scope.tableParams = new NgTableParams({sorting: { date: "desc" }}, {
             counts: [],
             dataset: $scope.listeTransactions
         })
+        $("table").next().addClass( "text-center" )
     }, function(error) {
         console.log(error);
     })
-
+    
     $http.get(Factory.url('/employe/consultation/solde'), null, Factory.jsonHerders).then(function(response) {
         $scope.solde = response.data.solde
+        $scope.active = !response.data.etat
     }, function(error) {
         console.log(error);
     })
-
-        $scope.opposer = function() {
+    $scope.opposer = function() {
         swal({
                 title: 'Etes vous sur?',
                 text: "Attention, cette Action est irréversible!",
@@ -48,7 +48,7 @@ export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTablePara
             function(isConfirm) {
                 if (isConfirm) {
                     $http.post(Factory.url('/employe/opposition'), null, Factory.jsonHerders).then(function(response){
-                    	$scope.active = false;
+                        $scope.active = false;
                         swal(
                             'Opposée!',
                             'Votre carte est Opposée',

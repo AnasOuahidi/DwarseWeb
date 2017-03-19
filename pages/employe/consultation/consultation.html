@@ -5,13 +5,13 @@
     	<span style="font-size: 65px"><strong>   {{solde}} €</strong></span>
     </div>
     <div class="col-sm-4 col-sm-offset-4 opposition">
-    	<span style="font-size: 40px">Opposer la Carte :</span><br>
-<i class="fa fa-ban fa-5x right" style="margin-left:200px;" ng-class="{opposedIconEnabled : active , opposedIconDisabled : !active }" ng-click="opposer()"></i>
+    	<span style="font-size: 40px; margin-left:50px" >Opposer la Carte :</span><br>
+<i class="fa fa-ban fa-5x right" style="margin-left:250px;" ng-class="{opposedIconEnabled : active , opposedIconDisabled : !active }" ng-click="opposer()"></i>
     </div>
   </div>
 </div>
 <br><br>
-<table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+<table ng-table="tableParams" class="table table-condensed table-bordered table-striped" show-filter="true">
     <tr align="center" ng-repeat="transaction in $data">
 
         <td title="'Nom'" filter="{nom : 'text'}" sortable="'nom'" align="center"> {{transaction.nom}}</td>
@@ -25,6 +25,5 @@
         <td title="'Restaurant'" filter="{restaurant : 'text'}" sortable="'restaurant'" align="center"> {{transaction.restaurant}}</td>
 
         <td title="'Montant'" filter="{montant : 'number'}" sortable="'montant'" align="center">{{transaction.montant}}</td>   
-
     </tr>
 </table>
