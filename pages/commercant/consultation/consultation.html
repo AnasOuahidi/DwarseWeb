@@ -4,7 +4,7 @@
             <span style="font-size: 40px">  Votre Solde est :</span><br>
             <span style="font-size: 65px"><strong>   {{solde}} €</strong></span>
         </div>
-        <div class="col-sm-3 col-sm-offset-5 opposition">            
+        <div class="col-sm-3 col-sm-offset-5 opposition">
             <span style="font-size: 40px">A venir :</span><br>
             <span style="font-size: 65px"><strong>   {{soldeAvenir}} €</strong></span>
         </div>
@@ -14,13 +14,22 @@
 <div class="container">
     <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat=" transaction in $data">
-            <td data-title="'Identifiant de l\'employe'" filter="{id : 'number'}" sortable="'id'" align="center">{{transaction.id}}</td>
-            <td data-title="'Date de la transaction'" filter="{date : 'text'}" sortable="'date'"  align="center">{{transaction.date}}</td>
+            <td data-title="'Identifiant de l\'employe'" filter="{id : 'number'}" sortable="'id'" align="center">
+                {{transaction.id}}
+            </td>
+            <td data-title="'Date de la transaction'" filter="{date : 'text'}" sortable="'date'" align="center">
+                {{transaction.date}}
+            </td>
             <td data-title="'Heure'" filter="{time : 'text'}" sortable="'time'" align="center">{{transaction.time}}</td>
-            <td title="'Nom de l\'employeur'" filter="{libelleEmployeur : 'text'}" sortable="'libelleEmployeur'" align="center"> {{transaction.libelleEmployeur}}</td>
-            <td title="'Montant'" filter="{montant : 'number'}" sortable="'montant'" align="center">{{transaction.montant}}</td>
-            <td title="'Etat'" filter="{ etatTransaction: 'text'}" sortable="'etatTransaction'" 
-            ng-class="transaction.etat ? 'aVenir' : 'termine'" align="center">{{transaction.etatTransaction}}</td>
+            <td title="'Nom de l\'employeur'" filter="{libelleEmployeur : 'text'}" sortable="'libelleEmployeur'"
+                align="center"> {{transaction.libelleEmployeur}}
+            </td>
+            <td title="'Montant'" filter="{montant : 'number'}" sortable="'montant'" align="center">
+                {{transaction.montant}}
+            </td>
+            <td title="'Etat'" filter="{ etatTransaction: 'text'}" sortable="'etatTransaction'"
+                ng-class="transaction.etat ? 'aVenir' : 'termine'" align="center">{{transaction.etatTransaction}}
+            </td>
         </tr>
     </table>
 </div>
