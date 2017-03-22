@@ -1,0 +1,13 @@
+<div class="modal-content">
+    <div class="modal-header bg-info">
+        <i class="ion-flame modal-icon"></i><strong> Facture </strong>
+    </div>
+    <div class="modal-body text-center">
+        <object data="{{url}}" type="application/pdf" width="100%" height="{{height}}">
+            alt : <a href="{{url}}">{{url}}</a>
+        </object>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$dismiss()">Annuler</button>
+    </div>
+</div>

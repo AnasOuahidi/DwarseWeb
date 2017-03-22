@@ -8,7 +8,6 @@ export let commercantConsultationCtrl = ['$scope', 'Factory', '$http', 'NgTableP
 		if (error.status == 400) {
 			$scope.error = ''
 		}
-
 	})
 	$http.get(Factory.url('/commercant/consultation/historique'), null, Factory.jsonHerders).then(function (response) {
 			$scope.tableauHistorique = []

@@ -1,4 +1,4 @@
-export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTableParams',function($scope , $http , Factory, NgTableParams) {
+export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTableParams', '$uibModal',function($scope , $http , Factory, NgTableParams, $uibModal) {
     $('title').html('consultation')
 
 
@@ -9,6 +9,8 @@ export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTablePara
         for (let i = 0; i < transactions.length; i++) {
             let dateTime = transactions[i].date
             let transaction = {
+                id: transactions[i].id,
+                idEmpl: transactions[i].carte.employe.id,
 				prenom : transactions[i].carte.employe.prenom,
 				nom : transactions[i].carte.employe.nom,
 				date : dateTime.substring(0,10),
@@ -61,6 +63,14 @@ export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTablePara
             }
         )}
 
-
-
+    $scope.consultationFacture = function(id) {
+        let trans =window._.find($scope.listeTransactions, {id:id})
+        $scope.url = 'https://s3.amazonaws.com/dwarse/pdfs/employes/' + trans.idEmpl + '/' + trans.id + '.pdf'
+        $scope.height = $(window).height()
+        $uibModal.open({
+            animation: true,
+            template: require('./../consultationFactureModal.html'),
+            scope: $scope
+        })
+    }
 }]
