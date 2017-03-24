@@ -1,5 +1,5 @@
 export let commercantProfileCtrl = ['$scope', 'Factory', 'Upload', '$state', '$uibModal', function($scope, Factory, Upload, $state, $uibModal) {
-    $('title').html('profile')
+    $('title').html('Profile')
     $('body').removeClass('bg')
     $scope.profile = {}
 

@@ -1,5 +1,5 @@
 export let employeurEmployeCtrl = ['$scope', 'NgTableParams', '$http', 'Factory', '$uibModal', function($scope, NgTableParams, $http, Factory, $uibModal) {
-    $('title').html('employes')
+    $('title').html('Employes')
     let calculerAge = (datenaissance) => {
         var jr = datenaissance.substring(2)
         var mois = datenaissance.substring(3, 5)

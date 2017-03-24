@@ -1,5 +1,5 @@
 export let commercantConsultationCtrl = ['$scope', 'Factory', '$http', 'NgTableParams', function ($scope, Factory, $http, NgTableParams) {
-	$('title').html('consultation')
+	$('title').html('Consultation')
 	$scope.soldeAvenir = 0
 
 	$http.get(Factory.url('/commercant/consultation/solde'), null, Factory.jsonHerders).then((response) => {

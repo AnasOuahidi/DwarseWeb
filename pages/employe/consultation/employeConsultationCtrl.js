@@ -1,5 +1,5 @@
 export let employeConsultationCtrl = ['$scope', '$http', 'Factory', 'NgTableParams', '$uibModal',function($scope , $http , Factory, NgTableParams, $uibModal) {
-    $('title').html('consultation')
+    $('title').html('Consultation')
 
 
     $http.get(Factory.url('/employe/consultation/historique'), null, Factory.jsonHerders).then(function(response) {
