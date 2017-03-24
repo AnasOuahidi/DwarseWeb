@@ -25,7 +25,7 @@
                 align="center"> {{transaction.libelleEmployeur}}
             </td>
             <td title="'Montant'" filter="{montant : 'number'}" sortable="'montant'" align="center">
-                {{transaction.montant}}
+                {{transaction.montant}} €
             </td>
             <td title="'Etat'" filter="{ etatTransaction: 'text'}" sortable="'etatTransaction'"
                 ng-class="transaction.etat ? 'aVenir' : 'termine'" align="center">{{transaction.etatTransaction}}
